@@ -13,8 +13,8 @@
 <body>
 <script>
 	window.onload = function() {
-		alert(<%=msg %>);
-		location.href(<%=url %>)
+		alert('<%=msg %>');
+		location.href ='<%=url %>';
 		};
 </script>
 </body>
