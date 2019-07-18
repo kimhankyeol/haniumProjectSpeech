@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- JAVA와 연결할 Mapper 파일 설정 -->
+<mapper namespace="poly.persistance.mapper.NotiMapper">
+<insert id="insertNotiInfo" parameterType="NotiDTO">
+INSERT INTO NOTI(
+	TITLE, CONTENT, REG_DT
+	)VALUES(
+		#{title}, #{content}, SYSDATE())
+</insert>
+<select id="getNotiList" resultType="NotiDTO">
+SELECT
+	TITLE AS title,
+	CONTENT AS content,
+	REG_DT AS regDate,
+	NOTI_SEQ AS seq
+FROM
+	NOTI
+</select>
+<select id="getNotiDetail" parameterType="String" resultType="NotiDTO">
+SELECT
+	TITLE AS title,
+	CONTENT AS content,
+	REG_DT AS regDate,
+	NOTI_SEQ AS seq
+FROM
+	NOTI
+WHERE
+	NOTI_SEQ = #{seq}
+</select>
+<update id="updateNoti" parameterType="NotiDTO">
+UPDATE
+	NOTI
+SET
+	TITLE = #{title},
+	CONTENT = #{content}
+WHERE
+	NOTI_SEQ = #{seq}
+</update>
+<delete id="deleteNoti" parameterType="String">
+DELETE
+	FROM NOTI
+WHERE
+	NOTI_SEQ = #{seq}
+</delete>
+</mapper>
