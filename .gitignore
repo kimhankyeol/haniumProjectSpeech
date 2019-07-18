@@ -2,3 +2,4 @@
 /Servers/
 /SpringPRJ/target/
 /SpringPRJ/.classpath
+/SpringPRJ/src/config/context-datasource.xml
