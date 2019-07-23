@@ -87,7 +87,6 @@ public class UserController {
 		if (uDTO != null) {
 			result = 1;
 		}
-
 		return result;
 	}
 	
