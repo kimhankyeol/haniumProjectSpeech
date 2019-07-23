@@ -4,13 +4,25 @@
 <mapper namespace="poly.persistance.mapper.ResFeedbackMapper">
 
 <select id="getResList" resultType="ResFeedbackDTO">
-
 	SELECT
 		feedback_no, 
-		f_title, qsetno,
+		f_title, qset_no,
 		regdate, regno, upddate, updno
 	FROM feedback
 
 </select>
+
+<select id="getResDetail" parameterType="String" resultType="ResFeedbackDTO">
+	SELECT
+		f_title AS title,
+		qset_no AS qsetno,
+		regdate,
+		feedback_no
+	FROM
+		feedback
+	WHERE
+		feedback_no = #{feedbackNo}
+</select>
+
 
 </mapper>

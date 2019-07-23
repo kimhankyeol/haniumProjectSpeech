@@ -6,6 +6,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import poly.dto.FeedbackCommentDTO;
 import poly.dto.ResFeedbackDTO;
 import poly.persistance.mapper.ResFeedbackMapper;
 import poly.service.IResFeedbackService;
@@ -19,6 +20,17 @@ public class ResFeedbackService implements IResFeedbackService {
 	@Override
 	public List<ResFeedbackDTO> getResList() throws Exception {
 		return resFeedbackMapper.getResList();
+	}
+
+	@Override
+	public ResFeedbackDTO getResDetail(String feedbackNo) throws Exception {
+		return resFeedbackMapper.getResDetail(feedbackNo);
+	}
+
+	@Override
+	public int commentReg(FeedbackCommentDTO fcDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

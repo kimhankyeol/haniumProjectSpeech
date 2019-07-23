@@ -7,6 +7,7 @@ public class ResFeedbackDTO {
 	private String feedback_no;
 	private String f_title;
 	private String qset_no;
+	private String qset_title;
 	private String content;
 	private String regdate;
 	private String regno;
@@ -30,6 +31,12 @@ public class ResFeedbackDTO {
 	}
 	public void setQset_no(String qset_no) {
 		this.qset_no = qset_no;
+	}
+	public String getQset_title() {
+		return qset_title;
+	}
+	public void setQset_title(String qset_title) {
+		this.qset_title = qset_title;
 	}
 	public String getContent() {
 		return content;
@@ -62,5 +69,5 @@ public class ResFeedbackDTO {
 		this.updno = updno;
 	}
     
-    
+	
 }

@@ -11,7 +11,9 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import poly.dto.FeedbackCommentDTO;
 import poly.dto.ResFeedbackDTO;
 import poly.service.IResFeedbackService;
 
@@ -40,7 +42,7 @@ public class ResFeedbackController {
 		
 		rList = null;
 		
-		log.info(this.getClass().getName() + ".NoticeList end!");
+		log.info(this.getClass().getName() + ".ResList end!");
 		
 		return "/resFeedback/resList";
 	}
@@ -50,30 +52,64 @@ public class ResFeedbackController {
 	@RequestMapping(value="resFeedback/resDetailFeedback")
 	public String ResDetailFeedback(HttpServletRequest request, Model model) throws Exception{
 		
-		/*
-		 * 작성중
-		 * */
+		log.info(this.getClass().getName());
+		
+		String feedbackNo = request.getParameter("feedback_no");
+		
+		ResFeedbackDTO rDTO = new ResFeedbackDTO();
+		//FeedbackCommentDto fcDTO = new FeedbackCommentDTO();
+		
+		rDTO = resFeedbackService.getResDetail(feedbackNo);
+		
+		
+		if(rDTO==null) {
+			rDTO = new ResFeedbackDTO();
+		}
+		
+		//fcDTO = resFeedbackService.commentReg 
+		
+		log.info("getResDetail success.");
+		//log.info("commentReg success.");
+		
+		model.addAttribute("rDTO", rDTO);
+		
+		rDTO = null;
 		
 		return "/resFeedback/resDetailFeedback";
 	}
 	
+	
+	
 	@RequestMapping(value="resFeedback/resFeedbackInsert")
-	public String ResFeedbackInsert(HttpSession session, HttpServletRequest request, Model model) throws Exception {
+	public @ResponseBody String CommentReg(HttpSession session, HttpServletRequest request, Model model) throws Exception{
+	
+		//String user_id = (String)session.getAttribute("");
+		String feedbackNo = request.getParameter("feedback_no");
+		String regNo = request.getParameter("regno");
+		String commenttext = request.getParameter("commenttext");
+				
+		//log.info(user_id);
+		log.info(feedbackNo);
+		log.info(regNo);
+		log.info(commenttext);
 		
-		log.info(this.getClass().getName() + ".ResFeedbackInsert start");
+		FeedbackCommentDTO fcDTO = new FeedbackCommentDTO();
+		fcDTO.setCommenttext(commenttext);
+		fcDTO.setRegNo(regNo);
+		
+		int result = 0;
+		
+		try {
+			result = resFeedbackService.commentReg(fcDTO);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		
 		
 		return "/redirect";
 	}
-	
-	/*
-	@RequestMapping(value="resFeedback/resFeedbackInsert")
-	public String ResFeedbackRegProc(HttpSession session, HttpServletRequest request, Model model) throws Exception{
-	
-	return "/redirect"
-	}
-*/
+
 }
 
 
