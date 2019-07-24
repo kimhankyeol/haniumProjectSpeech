@@ -54,7 +54,7 @@ public class ResFeedbackController {
 		
 		log.info(this.getClass().getName());
 		
-		String feedbackNo = request.getParameter("feedback_no");
+		String feedbackNo = request.getParameter("feedbackno");
 		
 		log.info(feedbackNo);
 		ResFeedbackDTO rDTO = new ResFeedbackDTO();
@@ -62,9 +62,7 @@ public class ResFeedbackController {
 		
 		try {
 			rDTO = resFeedbackService.getResDetail(feedbackNo);
-			if(rDTO==null) {
-				rDTO = new ResFeedbackDTO();
-			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

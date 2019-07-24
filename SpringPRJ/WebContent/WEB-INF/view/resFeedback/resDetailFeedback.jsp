@@ -12,9 +12,11 @@
 <title>이용자피드백 게시판</title>
 </head>
 <body style="text-align: center;">
+	
 	<div style="text-align:center; font-size:2em; color: white; background-color: #003074;">
 		이용자피드백 게시판
 	</div>
+	<input type="hidden" name="feedback_no" value="<%=rDTO.getFeedback_no() %>">
 	<div>
 		<span><%=rDTO.getFeedback_no() %></span>
 		<span><%=rDTO.getF_title() %></span>

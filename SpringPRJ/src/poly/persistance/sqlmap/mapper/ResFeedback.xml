@@ -15,8 +15,8 @@
 <select id="getResDetail" parameterType="String" resultType="ResFeedbackDTO">
 	SELECT
 		feedback_no,
-		f_title AS title,
-		qset_no AS qsetno,
+		f_title,
+		qset_no,
 		regdate
 	FROM
 		feedback
