@@ -48,7 +48,7 @@ public class ResFeedbackController {
 	}
 	
 	
-	//게시글 상세보기와 댓글 등록하기(하나에 가능?)
+	
 	@RequestMapping(value="resFeedback/resDetailFeedback")
 	public String ResDetailFeedback(HttpServletRequest request, Model model) throws Exception{
 		
@@ -56,16 +56,20 @@ public class ResFeedbackController {
 		
 		String feedbackNo = request.getParameter("feedback_no");
 		
+		log.info(feedbackNo);
 		ResFeedbackDTO rDTO = new ResFeedbackDTO();
 		//FeedbackCommentDto fcDTO = new FeedbackCommentDTO();
 		
-		rDTO = resFeedbackService.getResDetail(feedbackNo);
-		
-		
-		if(rDTO==null) {
-			rDTO = new ResFeedbackDTO();
+		try {
+			rDTO = resFeedbackService.getResDetail(feedbackNo);
+			if(rDTO==null) {
+				rDTO = new ResFeedbackDTO();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		
+		log.info(feedbackNo);
 		//fcDTO = resFeedbackService.commentReg 
 		
 		log.info("getResDetail success.");
@@ -73,7 +77,7 @@ public class ResFeedbackController {
 		
 		model.addAttribute("rDTO", rDTO);
 		
-		rDTO = null;
+		
 		
 		return "/resFeedback/resDetailFeedback";
 	}
@@ -84,18 +88,17 @@ public class ResFeedbackController {
 	public @ResponseBody String CommentReg(HttpSession session, HttpServletRequest request, Model model) throws Exception{
 	
 		//String user_id = (String)session.getAttribute("");
-		String feedbackNo = request.getParameter("feedback_no");
-		String regNo = request.getParameter("regno");
-		String commenttext = request.getParameter("commenttext");
-				
+//		String feedbackNo = request.getParameter("feedback_no");
+//		String regNo = request.getParameter("regno");
+//		String commenttext = request.getParameter("commenttext");
+		
+		String commentInfo = request.getParameter("param");
+		
 		//log.info(user_id);
-		log.info(feedbackNo);
-		log.info(regNo);
-		log.info(commenttext);
+		log.info(commentInfo);
 		
 		FeedbackCommentDTO fcDTO = new FeedbackCommentDTO();
-		fcDTO.setCommenttext(commenttext);
-		fcDTO.setRegNo(regNo);
+				
 		
 		int result = 0;
 		
