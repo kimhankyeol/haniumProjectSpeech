@@ -20,13 +20,13 @@
 <body>
 	<div>회원가입</div>
 	<form name="joinForm" method="POST" action="/UserRegProc.do"
-		onsubmit="return validId&&validEmail&&validPw;">
+		onsubmit="return validity['id']&&validity['email']&&validity['pwConfirm'];">
 		<div style="display: flex">
 			<div>회원 아이디</div>
 			<input type="text" name="id" id="id" pattern="[A-Za-z0-9_]{1,}"
 				required title="영문, 숫자, 언더바(_)만 사용 가능합니다(숫자로 시작 불가)" value="">
-			<button id="idCheck">중복확인</button>
-			<span style="color: red" id="idChkMsg"></span>
+			<button id="idCheck" disabled="disabled">중복확인</button>
+			<span style="color: red" id="idMsg"></span>
 		</div>
 		<div style="display: flex">
 			<div>회원 비밀번호</div>
@@ -35,14 +35,14 @@
 		<div style="display: flex">
 			<div>비밀번호 확인</div>
 			<input id="pwConfirm" type="password" name="pwdChk">
-			<span id="pwMessage"></span>
+			<span id="pwConfirmMsg"></span>
 		</div>
 
 
 		<div style="display: flex">
 			<div>회원 이메일</div>
 			<input type="email" name="email" id="email">
-			<span id="emailMessage"></span>
+			<span id="emailMsg"></span>
 		</div>
 		<div style="display: flex">
 			<div>관심업종</div>
@@ -54,60 +54,84 @@
 	// input validation script
 	
 	// ID validation
-	var validId = false;
-	var validPw = false;
-	var validEmail = false;
+	// 세 값이 모두 참이어야 '가입하기' 버튼이 활성화됨
+	var validity = {
+		"id":false,
+		"pwConfirm":false,
+		"email":false
+	};
 	
-	
-	
-	// enables Submit button when all three values are valid
-	function validCheck(){
-		if(validId&&validPw&&validEmail){
+	// enables Submit button when all three inputs are valid
+	// 위의 세 값이 참인지 확인하는 함수
+	function validCheckAll(){
+		if(validity["id"]&&validity["pwConfirm"]&&validity["email"]){
 			$("#submitBtn").removeAttr("disabled");
 		}else{
 			$("#submitBtn").attr("disabled", "disabled");
 		}
 	}
 	
+	// applies the result of validity check
+	// 유효성 확인 결과를 위에서 정의한 validity에 적용하고, 정해진 메시지를 출력함
+	// id : 입력 항목의 아이디
+	// msg : 해당 항목 옆에 표시될 메시지 내용
+	// valid : 유효성 검사 결과
+	// focus : 해당 항목으로 커서가 돌아갈 지 지정함. 기본값은 false
+	function validResult(id, msg, valid, focus=false){
+		// 입력 항목 옆에 메시지를 출력함. 메시지가 표시되는 곳의 아이디는 입력항목의 아이디+Msg임.
+		// 예) email 유효성 검사 메시시가 표시될 공간의 아이디는 emailMsg
+		$("#"+id+"Msg").text(msg);
+		
+		// 값이 유효할 경우 포록색, 아닐 경우 빨간색으로 글씨색 표시
+		$("#"+id+"Msg").attr("style", "color:"+(valid? "green":"red"));
+		
+		// 유효성 검사 결과를 위에서 정의한 validity 객체에 저장
+		validity[id] = valid;
+		
+		// focus가 참일 경우 해당 입력항목으로 커서가 가게 한다
+		if(focus){
+			$("#"+id).focus();
+		}
+		
+		// 입력 항목이 모두 유효한지 확인
+		validCheckAll();
+	}
+	
 	// ID Validation function
 	function validateId(){
-		if($("#id").val() == ""){
-			$("#idChkMsg").text("아이디를 입력해주세요.");
-			$("#idChkMsg").attr("style", "color:red");
-			$("#id").focus();
-			
-			validId = false;
-		}else{
-			var query = {id : $("#id").val()};
-			
-			$.ajax({
-				url:"${pageContext.request.contextPath}/idCheck.do",
-				type:"post",
-				data:query,
-				success:function(data){
-					if(data==1){
-						$("#idChkMsg").text("중복된 아이디입니다.");
-						$("#idChkMsg").attr("style", "color:red");
-						validId = false;
-						$("#id").focus();
-					}else{
-						$("#idChkMsg").text("사용 가능한 아이디입니다.");
-						$("#idChkMsg").attr("style", "color:green");
-						$("#pw").focus();
-						validId = true;
-						
-					}
-					validCheck();
-				},
-				error: function(XMLHttpRequest, textStatus, errorThrown){
-					alert('status:' + XMLHttpRequest.status + ', status text: ' +
-							XMLHttpRequest.statusText);
-				}
-			
+		var valid = false;
+		var msg = "";
+		var query = {id : $("#id").val()};
+		
+		$.ajax({
+			url:"${pageContext.request.contextPath}/idCheck.do",
+			type:"post",
+			data:query,
+			success:function(data){
 				
-			});
+				// 아이디 중복검사
+				if(data==1){
+					msg = "이미 사용 중인 아이디입니다.";
+					$("#id").focus();
+				}else{
+					msg="사용 가능한 아이디입니다.";
+					valid = true;
+					$("#pw").focus();
+					
+					
+				}
+				
+				// 유효성 검사 결과 적용
+				validResult("id", msg, valid, !valid);
+				
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown){
+				alert('status:' + XMLHttpRequest.status + ', status text: ' +
+						XMLHttpRequest.statusText);
+			}
+		
 			
-		}
+		});
 	}
 	
 	
@@ -116,47 +140,38 @@
 	function validatePw(){
 		var passwd = $("#pw").val();
 		var pwdChk = $("#pwConfirm").val();
+		var valid = false;
+		var msg = '';
 		if (passwd != pwdChk) {
-			$("#pwMessage").text("암호가 일치하지 않습니다."); 
-			$("#pwMessage").attr("style", "color:red"); 
-			validPw = false;
+			msg = "암호가 일치하지 않습니다."; 
 			
 		}else if (passwd == "") {
-			$("#pwMessage").text("암호를 입력해주세요."); 
-			$("#pwMessage").attr("style", "color:red"); 
-			validPw = false;
+			msg = "암호를 입력해주세요.";
+			
+		}else{
+			msg = "암호가 일치합니다.";
+			valid = true;
 			
 		}
-		
-		else{
-			$("#pwMessage").text("암호가 일치합니다."); 
-			$("#pwMessage").attr("style", "color:green"); 
-			validPw = true;
-		}
-		validCheck();
+		validResult("pwConfirm", msg, valid);
 	}
 	
 	// Email validation function
 	function validateEmail(){
 		var email = $("#email").val();
 		var mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+		var valid = false;
+		var msg = '';
 		if (email == "") {
-			$("#emailMessage").text("이메일을 입력해주세요."); 
-			$("#emailMessage").attr("style", "color:red"); 
-			validEmail = false;
-			
+			msg = "이메일을 입력해주세요."; 
 		}
-		
 		else if(!(mailFormat.test(email))){
-			$("#emailMessage").text("유효하지 않은 이메일입니다."); 
-			$("#emailMessage").attr("style", "color:red"); 
-			validEmail = false;
+			msg = "유효하지 않은 이메일입니다."; 
 		}else{
-			$("#emailMessage").text(""); 
-			$("#emailMessage").attr("style", "color:green");
-			validEmail = true;
+			msg = ""; 
+			valid = true;
 		}
-		validCheck();
+		validResult("email", msg, valid);
 	}
 	
 	
@@ -171,21 +186,18 @@
 	$("#id").keyup(function(){
 		var id = $("#id").val();
 		var idFormat = /\W/g;
-		
+		var msg = "";
 		if($("#id").val() == ""){
-			$("#idChkMsg").text("아이디를 입력해주세요.");
-			$("#idChkMsg").attr("style", "color:red");
+			msg = "아이디를 입력해주세요."
+			$("#idCheck").attr("disabled", "disabled");
 		}else if(idFormat.test(id)){
-			$("#idChkMsg").text("영문, 숫자, 언더바(_)만 가능합니다."); 
-			$("#idChkMsg").attr("style", "color:red");
+			msg = "영문, 숫자, 언더바(_)만 가능합니다."; 
 			$("#idCheck").attr("disabled", "disabled");
 		}else{
-			$("#idChkMsg").text("아이디 중복확인을 해주세요.");
-			$("#idChkMsg").attr("style", "color:red");
+			msg = "아이디 중복확인을 해주세요.";
 			$("#idCheck").removeAttr("disabled");
 		}
-		$("#submitBtn").attr("disabled", "disabled");
-		validId = false;
+		validResult("id", msg, false);
 		
 	})
 	
