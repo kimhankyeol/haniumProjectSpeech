@@ -13,6 +13,9 @@
 	<select id="findID" resultType="UserDTO">
 	SELECT EMAIL, ID FROM USERINFO WHERE EMAIL = #{email}
 	</select>
+	<select id="findPw" resultType="UserDTO">
+	SELECT EMAIL, ID FROM USERINFO WHERE ID = #{id}
+	</select>
 	<insert id="userRegProc" parameterType="UserDTO">
 	INSERT INTO
 	USERINFO

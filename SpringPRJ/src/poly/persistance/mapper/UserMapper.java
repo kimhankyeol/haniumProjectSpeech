@@ -16,4 +16,6 @@ public interface UserMapper {
 
 	UserDTO emailCheck(String email) throws Exception;
 
+	UserDTO findPw(String id) throws Exception;
+
 }

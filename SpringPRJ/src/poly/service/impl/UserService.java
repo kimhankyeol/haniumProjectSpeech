@@ -39,5 +39,10 @@ public class UserService implements IUserService{
 		return userMapper.emailCheck(email);
 	}
 
+	@Override
+	public UserDTO findPw(String id) throws Exception {
+		return userMapper.findPw(id);
+	}
+
 
 }

@@ -168,4 +168,29 @@ public class UserController {
 		
 		return "/redirect";
 	}
+	
+	@RequestMapping(value="FindUserPw")
+	public String findUserPw() throws Exception{
+		log.info("Request FindUserID");
+		return "User/FindUserPw";
+	}
+	
+	@RequestMapping(value = "FindUserPwProc")
+	public String findUserPwProc(HttpServletRequest request, ModelMap model)
+			throws Exception {
+		String id = request.getParameter("id");
+		// set interest to null if empty
+		UserDTO uDTO = userService.findPw(id);
+		
+		
+		if(uDTO==null) {
+			model.addAttribute("url", "/index.do");
+			model.addAttribute("msg", "해당 아이디는 존재하지 않습니다.");
+		}else {
+			model.addAttribute("url", "/index.do");
+			model.addAttribute("msg", "이메일로 초기화 링크를 보내드렸습니다.");
+		}
+		
+		return "/redirect";
+	}
 }

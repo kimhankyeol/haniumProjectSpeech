@@ -14,4 +14,6 @@ public interface IUserService {
 
 	UserDTO emailCheck(String email) throws Exception;
 
+	UserDTO findPw(String id) throws Exception;
+
 }
