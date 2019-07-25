@@ -29,5 +29,20 @@ public class UserService implements IUserService{
 		return userMapper.getLogin(uDTO);
 	}
 
+	@Override
+	public UserDTO findID(String email) throws Exception {
+		return userMapper.findID(email);
+	}
+
+	@Override
+	public UserDTO emailCheck(String email) throws Exception {
+		return userMapper.emailCheck(email);
+	}
+
+	@Override
+	public UserDTO findPw(String id) throws Exception {
+		return userMapper.findPw(id);
+	}
+
 
 }

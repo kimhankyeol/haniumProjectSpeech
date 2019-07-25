@@ -4,8 +4,17 @@
 	<select id="idCheck" resultType="UserDTO">
 	SELECT DISTINCT(ID) FROM USERINFO WHERE ID = #{id};
 	</select>
+	<select id="emailCheck" resultType="UserDTO">
+	SELECT DISTINCT(EMAIL) FROM USERINFO WHERE EMAIL = #{email};
+	</select>
 	<select id="getLogin" resultType="UserDTO">
 	SELECT USERNO, ID FROM USERINFO WHERE ID = #{id} AND PASSWD = #{passwd}
+	</select>
+	<select id="findID" resultType="UserDTO">
+	SELECT EMAIL, ID FROM USERINFO WHERE EMAIL = #{email}
+	</select>
+	<select id="findPw" resultType="UserDTO">
+	SELECT EMAIL, ID FROM USERINFO WHERE ID = #{id}
 	</select>
 	<insert id="userRegProc" parameterType="UserDTO">
 	INSERT INTO

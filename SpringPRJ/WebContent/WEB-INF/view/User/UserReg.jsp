@@ -24,8 +24,8 @@
 		<div style="display: flex">
 			<div>회원 아이디</div>
 			<input type="text" name="id" id="id" pattern="[A-Za-z0-9_]{1,}"
-				required title="영문, 숫자, 언더바(_)만 사용 가능합니다(숫자로 시작 불가)" value="">
-			<button id="idCheck" disabled="disabled">중복확인</button>
+				title="영문, 숫자, 언더바(_)만 사용 가능합니다(숫자로 시작 불가)" value="">
+			<button id="idCheck" disabled="disabled">이이디 중복확인</button>
 			<span style="color: red" id="idMsg"></span>
 		</div>
 		<div style="display: flex">
@@ -42,6 +42,7 @@
 		<div style="display: flex">
 			<div>회원 이메일</div>
 			<input type="email" name="email" id="email">
+			<button id="emailCheck" disabled="disabled">이메일 중복확인</button>
 			<span id="emailMsg"></span>
 		</div>
 		<div style="display: flex">
@@ -134,8 +135,32 @@
 		});
 	}
 	
-	
-	
+	function validateEmail(){
+
+		var valid = false;
+		var msg = '';
+		var query = {email : $("#email").val()};
+		$.ajax({
+			url:"${pageContext.request.contextPath}/emailCheck.do",
+			type:"post",
+			data:query,
+			success:function(data){
+				
+				if(data==1){
+					msg = "이미 등록된 이메일입니다.";
+					$("#email").focus();
+				}else{
+					msg="사용 가능한 이메일입니다.";
+					valid = true;
+				}
+				validResult("email", msg, valid, !valid);
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown){
+				alert('status:' + XMLHttpRequest.status + ', status text: ' +
+					XMLHttpRequest.statusText);
+			}
+		});
+	}
 	// Password Validation function
 	function validatePw(){
 		var passwd = $("#pw").val();
@@ -157,33 +182,36 @@
 	}
 	
 	// Email validation function
-	function validateEmail(){
+
+	
+	
+	$("#email").on('input', function() {
 		var email = $("#email").val();
 		var mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-		var valid = false;
-		var msg = '';
-		if (email == "") {
-			msg = "이메일을 입력해주세요."; 
-		}
-		else if(!(mailFormat.test(email))){
+		var msg = "";
+		if(email == ""){
+			msg = "이메일을 입력해주세요."
+			$("#emailCheck").attr("disabled", "disabled");
+		}else if(!mailFormat.test(email)){
 			msg = "유효하지 않은 이메일입니다."; 
+			$("#emailCheck").attr("disabled", "disabled");
 		}else{
-			msg = ""; 
-			valid = true;
+			msg = "이메일 중복확인을 해주세요.";
+			$("#emailCheck").removeAttr("disabled");
 		}
-		validResult("email", msg, valid);
-	}
-	
-	
-	$("#email").keyup(function() {
-		validateEmail();
+		validResult("email", msg, false);
 	});
+	
 	
 	$("#idCheck").click(function(){
 		validateId();
 	});
 	
-	$("#id").keyup(function(){
+	$("#emailCheck").click(function(){
+		validateEmail();
+	});
+	
+	$("#id").on('input', function(){
 		var id = $("#id").val();
 		var idFormat = /\W/g;
 		var msg = "";
@@ -201,10 +229,10 @@
 		
 	})
 	
-	$("#pw").keyup(function(){
+	$("#pw").on('input', function(){
 		validatePw();
 	});
-	$("#pwConfirm").keyup(function(){
+	$("#pwConfirm").on('input', function(){
 		validatePw();
 	});
 	

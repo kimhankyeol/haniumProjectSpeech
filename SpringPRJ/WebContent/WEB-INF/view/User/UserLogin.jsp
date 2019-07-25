@@ -13,6 +13,7 @@
 		<input id="pw" type="password" name="passwd">
 	</div>
 	<input type="submit" value="로그인" id="loginBtn" >
+	<div><a href="FindUserID.do">아이디</a>/<a href="FindUserPw.do">비밀번호</a> 찾기</div>
 	</form>
 	<div><button onclick="location.href='/UserReg.do'">회원가입</button></div>
 	<%} else {%>
