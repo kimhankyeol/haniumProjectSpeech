@@ -10,4 +10,8 @@ public interface IUserService {
 
 	UserDTO getLogin(UserDTO uDTO) throws Exception;
 
+	UserDTO findID(String email) throws Exception;
+
+	UserDTO emailCheck(String email) throws Exception;
+
 }

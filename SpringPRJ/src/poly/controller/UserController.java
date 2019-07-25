@@ -90,6 +90,23 @@ public class UserController {
 		return result;
 	}
 	
+	@ResponseBody
+	@RequestMapping(value="/emailCheck.do", method = RequestMethod.POST)
+	public int emailCheck(HttpServletRequest request) throws Exception {
+		log.info("emailCheck");
+
+		String email = request.getParameter("email");
+		log.info(email);
+		UserDTO uDTO = userService.emailCheck(email);
+
+		int result = 0;
+
+		if (uDTO != null) {
+			result = 1;
+		}
+		return result;
+	}
+	
 	@RequestMapping(value="UserLogin", method = RequestMethod.POST)
 	public String login(ModelMap model, HttpServletRequest request, HttpSession session) throws Exception{
 		log.info("UserLogin");
@@ -125,5 +142,30 @@ public class UserController {
 		model.addAttribute("url", "/index.do");
 		return "/redirect";
 	}
+	
+	@RequestMapping(value="FindUserID")
+	public String findUserID() throws Exception{
+		log.info("Request FindUserID");
+		return "User/FindUserID";
+	}
 
+	@RequestMapping(value = "FindUserIDProc")
+	public String findUserIDProc(HttpServletRequest request, ModelMap model)
+			throws Exception {
+		String email = request.getParameter("email");
+		// set interest to null if empty
+		UserDTO uDTO = userService.findID(email);
+		
+		
+		if(uDTO==null) {
+			model.addAttribute("url", "/index.do");
+			model.addAttribute("msg", "아이디 찾기 실패");
+		}else {
+			String id = uDTO.getId();
+			model.addAttribute("url", "/index.do");
+			model.addAttribute("msg", "아이디는 " + id + "입니다.");
+		}
+		
+		return "/redirect";
+	}
 }

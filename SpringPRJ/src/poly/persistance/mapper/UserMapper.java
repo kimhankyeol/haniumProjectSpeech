@@ -1,7 +1,5 @@
 package poly.persistance.mapper;
 
-import java.util.List;
-
 import config.Mapper;
 import poly.dto.UserDTO;
 
@@ -13,5 +11,9 @@ public interface UserMapper {
 	UserDTO idCheck(String id) throws Exception;
 
 	UserDTO getLogin(UserDTO uDTO) throws Exception;
+
+	UserDTO findID(String email) throws Exception;
+
+	UserDTO emailCheck(String email) throws Exception;
 
 }
