@@ -17,11 +17,11 @@
 		이용자피드백 게시판
 	</div>
 	<input type="hidden" name="feedback_no" value="<%=rDTO.getFeedback_no() %>">
-	<div>
+	<div style="margin-top: 5%;">
 		<span><%=rDTO.getFeedback_no() %></span>
 		<span><%=rDTO.getF_title() %></span>
 	</div>
-	<div>
+	<div style="margin-top: 2%; margin-bottom: 4%">
 		<%=rDTO.getContent() %>
 	</div>
 	

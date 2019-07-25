@@ -11,6 +11,7 @@ public class FeedbackCommentDTO {
 	private String updNo;
 	
 	
+	
 	public String getCommentNo() {
 		return commentNo;
 	}
@@ -52,6 +53,13 @@ public class FeedbackCommentDTO {
 	}
 	public void setUpdNo(String updNo) {
 		this.updNo = updNo;
+	}
+	
+	@Override
+	public String toString() {
+		return "FeedbackCommentDTO [commentNo=" + commentNo + ", feedbackNo=" + feedbackNo + ", commenttext="
+				+ commenttext + ", regDate=" + regDate + ", regNo=" + regNo + ", updDate=" + updDate + ", updNo="
+				+ updNo + "]";
 	}
 	
 	

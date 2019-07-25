@@ -21,15 +21,26 @@
 		<button type="button" id="commentreg">댓글쓰기</button>
 	<%-- </c:if> --%>
 	</div>
+	<div id="cont"></div>
+	<button type="button" id="commentedit">수정</button>
+	<button type="button" id="commentdel">삭제</button>
 	
 	<script>
-$(function(){
-	$("#commentreg").click(function(){
-		comment();
-	})
-});	
 	
-	function comment() {
+	const selector = {
+			commentReg:$('#commentreg'),		
+			commentEdit:$('#commentedit'),
+			commentDel:$('#commentdel')
+	}
+	
+	$(function(){
+
+		selector.commentReg.click(function(){
+		commentreg();
+		})
+	});	
+	
+	function commentreg() {
 		var commenttext=$("#commenttext").val(); //댓글내용
 		var feedbackNo="${rDTO.feedback_no}"; //게시물번호
 		var commentInfo = {"commenttext": commenttext, "feedback_no":feedbackNo};
@@ -43,7 +54,10 @@ $(function(){
 			type: "post",
 			url: "${path}/resFeedback/resFeedbackInsert.do",
 			data: commentInfo,
-			success: function(){ //콜백함수
+			success: function(data){ //콜백함수
+			//	var cm_obj = [];
+			//	for (var i=0; )
+				
 				alert('댓글이 등록되었습니다!');
 			}
 		

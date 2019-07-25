@@ -16,5 +16,30 @@ public class FeedbackCommentService implements IFeedbackCommentService {
 	@Resource(name="FeedbackCommentMapper")
 	private FeedbackCommentMapper feedbackCommentMapper;
 
+	@Override
+	public int commentReg(FeedbackCommentDTO fcDTO) throws Exception {
+		return feedbackCommentMapper.commentReg(fcDTO);
+	}
+
+	@Override
+	public List<FeedbackCommentDTO> fcList(String feedbackNo, int start, int end) throws Exception {
+		return null;
+	}
+
+	@Override
+	public int commentEdit(FeedbackCommentDTO fcDTO) throws Exception {
+		return feedbackCommentMapper.commentEdit(fcDTO);
+	}
+
+	@Override
+	public int commentDel(String commentNo) throws Exception {
+		return feedbackCommentMapper.commentDel(commentNo);
+	}
+
+	@Override
+	public FeedbackCommentDTO getDetail(String commentNo) throws Exception {
+		return feedbackCommentMapper.getDetail(commentNo);
+	}
+
 
 }

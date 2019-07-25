@@ -27,10 +27,6 @@ public class ResFeedbackService implements IResFeedbackService {
 		return resFeedbackMapper.getResDetail(feedbackNo);
 	}
 
-	@Override
-	public int commentReg(FeedbackCommentDTO fcDTO) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	
 
 }

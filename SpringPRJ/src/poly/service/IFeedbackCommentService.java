@@ -6,14 +6,14 @@ import poly.dto.FeedbackCommentDTO;
 
 public interface IFeedbackCommentService {
 
-//	List<FeedbackCommentDTO> fcList() throws Exception;
+	List<FeedbackCommentDTO> fcList(String feedbackNo, int start, int end) throws Exception;
 	
-//	int insertFeedbackComment(FeedbackCommentDTO tcDTO) throws Exception;
+	public int commentReg(FeedbackCommentDTO fcDTO) throws Exception;
 	
-//	int updateFeedbackComment(FeedbackCommentDTO tcDTO) throws Exception;
+	public int commentEdit(FeedbackCommentDTO fcDTO) throws Exception;
 	
-//	int deleteFeedbackComment(String commentNo) throws Exception;
+	public int commentDel(String commentNo) throws Exception;
 	
-//	FeedbackCommentDTO getDetail(String commentNo) throws Exception;
+	public FeedbackCommentDTO getDetail(String commentNo) throws Exception;
 
 }

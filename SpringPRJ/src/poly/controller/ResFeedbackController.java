@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import poly.dto.FeedbackCommentDTO;
 import poly.dto.ResFeedbackDTO;
+import poly.service.IFeedbackCommentService;
 import poly.service.IResFeedbackService;
 
 @Controller
@@ -24,7 +25,6 @@ public class ResFeedbackController {
 	
 	@Resource(name = "ResFeedbackService")
 	private IResFeedbackService resFeedbackService;
-	
 	
 	//피드백 게시판 목록 불러오기
 	@RequestMapping(value="resFeedback/resList")
@@ -57,17 +57,16 @@ public class ResFeedbackController {
 		String feedbackNo = request.getParameter("feedbackno");
 		
 		log.info(feedbackNo);
+		
 		ResFeedbackDTO rDTO = new ResFeedbackDTO();
-		//FeedbackCommentDto fcDTO = new FeedbackCommentDTO();
+		
 		
 		try {
-			rDTO = resFeedbackService.getResDetail(feedbackNo);
-			
+			rDTO = resFeedbackService.getResDetail(feedbackNo);	
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		log.info(feedbackNo);
 		//fcDTO = resFeedbackService.commentReg 
 		
 		log.info("getResDetail success.");
@@ -82,34 +81,7 @@ public class ResFeedbackController {
 	
 	
 	
-	@RequestMapping(value="resFeedback/resFeedbackInsert")
-	public @ResponseBody String CommentReg(HttpSession session, HttpServletRequest request, Model model) throws Exception{
 	
-		//String user_id = (String)session.getAttribute("");
-//		String feedbackNo = request.getParameter("feedback_no");
-//		String regNo = request.getParameter("regno");
-//		String commenttext = request.getParameter("commenttext");
-		
-		String commentInfo = request.getParameter("param");
-		
-		//log.info(user_id);
-		log.info(commentInfo);
-		
-		FeedbackCommentDTO fcDTO = new FeedbackCommentDTO();
-				
-		
-		int result = 0;
-		
-		try {
-			result = resFeedbackService.commentReg(fcDTO);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		
-		
-		return "/redirect";
-	}
 
 }
 

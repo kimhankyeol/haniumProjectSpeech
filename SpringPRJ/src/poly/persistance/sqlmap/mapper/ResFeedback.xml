@@ -14,14 +14,17 @@
 
 <select id="getResDetail" parameterType="String" resultType="ResFeedbackDTO">
 	SELECT
-		feedback_no,
-		f_title,
-		qset_no,
-		regdate
+		F.feedback_no,
+		F.f_title,
+		F.qset_no,
+		Q.QSET_TITLE,
+		Q.CONTENT,
+		F.regdate
 	FROM
-		feedback
+		feedback F, qset Q
 	WHERE
-		feedback_no = #{feedback_no}
+		F.feedback_no = #{feedback_no}
+		AND F.qset_no = Q.QSET_NO;
 </select>
 
 

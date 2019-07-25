@@ -10,8 +10,6 @@ public interface IResFeedbackService {
 	List<ResFeedbackDTO> getResList() throws Exception;
 
 	ResFeedbackDTO getResDetail(String feedbackNo) throws Exception;
-
-	int commentReg(FeedbackCommentDTO fcDTO) throws Exception;
 	
 	
 

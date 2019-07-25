@@ -3,15 +3,13 @@
 
 <mapper namespace="poly.persistance.mapper.FeedbackCommentMapper">
 
-<!--
 
 <insert id="commentReg" parameterType="FeedbackCommentDTO">
 INSERT INTO feedback_comment (
-	content, regdate
+	feedback_no, commenttext, regno
 )VALUES(
-	#{comment}, SYSDATE()
+	#{feedbackNo}, #{commenttext}, #{regNo}
 );
 </insert>
--->
 
 </mapper>
