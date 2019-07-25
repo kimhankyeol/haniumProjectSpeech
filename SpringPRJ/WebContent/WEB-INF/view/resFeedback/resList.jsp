@@ -33,7 +33,7 @@
 		<%for(ResFeedbackDTO rDTO : rList) {%>
 			<tr>
 				<td><%=rDTO.getFeedback_no() %></td>
-				<td><a href="/resFeedback/resDetailFeedback.do?postno=<%=rDTO.getFeedback_no() %>"><%=rDTO.getF_title() %></a></td>
+				<td><a href="/resFeedback/resDetailFeedback.do?feedbackno=<%=rDTO.getFeedback_no() %>"><%=rDTO.getF_title() %></a></td>
 				<td><%=rDTO.getRegdate() %></td>
 			</tr>
 			<%} %>
