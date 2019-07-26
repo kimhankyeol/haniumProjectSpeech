@@ -2,9 +2,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
+<%@ include file="../User/session.jsp" %>
 <%
 	ResFeedbackDTO rDTO = (ResFeedbackDTO)request.getAttribute("rDTO");
+	String feedback_no = rDTO.getFeedback_no();
 %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,9 +19,9 @@
 	<div style="text-align:center; font-size:2em; color: white; background-color: #003074;">
 		이용자피드백 게시판
 	</div>
-	<input type="hidden" name="feedback_no" value="<%=rDTO.getFeedback_no() %>">
+	<input type="hidden" name="feedback_no" value="<%=feedback_no %>">
 	<div style="margin-top: 5%;">
-		<span><%=rDTO.getFeedback_no() %></span>
+		<span><%=feedback_no %></span>
 		<span><%=rDTO.getF_title() %></span>
 	</div>
 	<div style="margin-top: 2%; margin-bottom: 4%">

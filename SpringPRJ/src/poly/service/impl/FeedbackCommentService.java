@@ -17,13 +17,13 @@ public class FeedbackCommentService implements IFeedbackCommentService {
 	private FeedbackCommentMapper feedbackCommentMapper;
 
 	@Override
-	public int commentReg(FeedbackCommentDTO fcDTO) throws Exception {
-		return feedbackCommentMapper.commentReg(fcDTO);
+	public void commentReg(FeedbackCommentDTO fcDTO) throws Exception {
+		feedbackCommentMapper.commentReg(fcDTO);
 	}
 
 	@Override
-	public List<FeedbackCommentDTO> fcList(String feedbackNo, int start, int end) throws Exception {
-		return null;
+	public List<FeedbackCommentDTO> fcList(String feedbackNo) throws Exception {
+		return feedbackCommentMapper.fcList(feedbackNo);
 	}
 
 	@Override
@@ -34,11 +34,6 @@ public class FeedbackCommentService implements IFeedbackCommentService {
 	@Override
 	public int commentDel(String commentNo) throws Exception {
 		return feedbackCommentMapper.commentDel(commentNo);
-	}
-
-	@Override
-	public FeedbackCommentDTO getDetail(String commentNo) throws Exception {
-		return feedbackCommentMapper.getDetail(commentNo);
 	}
 
 

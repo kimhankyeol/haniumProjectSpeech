@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
     
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%  %>
 
 
 <!DOCTYPE html>
@@ -21,29 +20,52 @@
 		<button type="button" id="commentreg">댓글쓰기</button>
 	<%-- </c:if> --%>
 	</div>
-	<div id="cont"></div>
-	<button type="button" id="commentedit">수정</button>
-	<button type="button" id="commentdel">삭제</button>
+	<div id="commentlist">댓</div>
 	
-	<script>
-	
+</body>	
+<script>
 	const selector = {
+			commentText:$('#commenttext'),
 			commentReg:$('#commentreg'),		
 			commentEdit:$('#commentedit'),
-			commentDel:$('#commentdel')
+			commentDel:$('#commentdel'),
+			commentList:$('#commentlist')
 	}
 	
-	$(function(){
-
-		selector.commentReg.click(function(){
-		commentreg();
-		})
-	});	
+	//댓글불러오기
+	function commentListPage() {
+		$.ajax({
+			type: "get",
+			url:
+		"${path}/resFeedback/resFeedbackListPage.do",
+			data: {
+				"feedbackNo" : <%=feedback_no %>
+			},
+			success: function(data){
+				selector.commentList.html(data);
+			}
+		});
+	};
 	
+	commentListPage();
+	
+	
+	$(function(){
+		selector.commentReg.click(function(){
+			commentreg();
+		});
+		
+	});
+	
+	
+	//댓글작성
 	function commentreg() {
-		var commenttext=$("#commenttext").val(); //댓글내용
-		var feedbackNo="${rDTO.feedback_no}"; //게시물번호
-		var commentInfo = {"commenttext": commenttext, "feedback_no":feedbackNo};
+		var commenttext=selector.commentText.val(); //댓글내용
+		var feedbackNo= <%=feedback_no %>; //게시물번호
+		var commentInfo = {
+				"commenttext": commenttext,
+				"feedbackNo":feedbackNo,
+				"regNo": <%=userNo%>};
 		
 		 console.log(commenttext);
 		 console.log(feedbackNo);
@@ -54,16 +76,20 @@
 			type: "post",
 			url: "${path}/resFeedback/resFeedbackInsert.do",
 			data: commentInfo,
+			error: function(){
+				alert("통신실패");
+			},
 			success: function(data){ //콜백함수
-			//	var cm_obj = [];
-			//	for (var i=0; )
-				
-				alert('댓글이 등록되었습니다!');
+				selector.commentText.val(function()
+						{return ''}); //댓글란에 작성한 내용 지우기.
+				commentListPage();
 			}
 		
-		});
+		})
 	}
+	
+	
 
 </script>
-</body>
+
 </html>

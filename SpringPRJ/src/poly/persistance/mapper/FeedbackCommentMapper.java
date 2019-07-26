@@ -1,17 +1,19 @@
 package poly.persistance.mapper;
 
+import java.util.List;
+
 import config.Mapper;
 import poly.dto.FeedbackCommentDTO;
 
 @Mapper("FeedbackCommentMapper")
 public interface FeedbackCommentMapper {
 
-	int commentReg(FeedbackCommentDTO fcDTO) throws Exception;
+	void commentReg(FeedbackCommentDTO fcDTO) throws Exception;
 
 	int commentEdit(FeedbackCommentDTO fcDTO) throws Exception;
 
 	int commentDel(String commentNo) throws Exception;
 
-	FeedbackCommentDTO getDetail(String commentNo) throws Exception;
+	List<FeedbackCommentDTO> fcList(String feedbackNo) throws Exception;
 
 }

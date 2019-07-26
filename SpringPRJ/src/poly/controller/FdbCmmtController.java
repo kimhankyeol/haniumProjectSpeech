@@ -1,5 +1,8 @@
 package poly.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -22,29 +25,36 @@ public class FdbCmmtController {
 	private IFeedbackCommentService feedbackCommentService;
 	
 	@RequestMapping(value="resFeedback/resFeedbackInsert")
-	public @ResponseBody String CommentReg(HttpSession session, HttpServletRequest request, FeedbackCommentDTO fcDTO) throws Exception{
+	public @ResponseBody void CommentReg(HttpSession session, HttpServletRequest request, FeedbackCommentDTO fcDTO, Model model) throws Exception{
 	
-//		String user_id = (String)session.getAttribute(/*"유저아이디?"*/);
-				
-		//log.info(user_id);
-		String regno = (String)session.getAttribute("userNo");
-		fcDTO.setRegNo(regno);
-		
-		
-		
-		int result = 0;
+		log.info("feedback_no : " + fcDTO.getFeedbackNo());
+		log.info("comment : " + fcDTO.getCommenttext());
+		log.info("regno : " + fcDTO.getRegNo());
 		
 		try {
-			result = feedbackCommentService.commentReg(fcDTO);
+			feedbackCommentService.commentReg(fcDTO);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		if(result>0) {
-			//model.addAttribute();
-		}
-		
-		return "/redirect";
+		log.info(this.getClass().getName() + " end.");
 	}
+	
+	@RequestMapping(value="resFeedback/resFeedbackListPage")
+	public String CommentListPage(HttpSession session, HttpServletRequest request, Model model, String feedbackNo) throws Exception {
+		
+		log.info(feedbackNo);
+		log.info("start : "+ this.getClass().getName());
+		
+		List<FeedbackCommentDTO> fcDTO = feedbackCommentService.fcList(feedbackNo);
+	
+		model.addAttribute("fcDTO", fcDTO);
+		
+		log.info("end : " + this.getClass().getName());
+		
+		return "/resFeedback/resFeedbackList";
+	}
+	
+	
 	
 }
