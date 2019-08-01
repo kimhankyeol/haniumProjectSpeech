@@ -20,16 +20,18 @@
 		<button type="button" id="commentreg">댓글쓰기</button>
 	<%-- </c:if> --%>
 	</div>
-	<div id="commentlist">댓</div>
+	<div id="commentlist"></div>
 	
 </body>	
 <script>
 	const selector = {
 			commentText:$('#commenttext'),
+		//	commentNum:$('#commentNum'),
 			commentReg:$('#commentreg'),		
 			commentEdit:$('#commentedit'),
 			commentDel:$('#commentdel'),
-			commentList:$('#commentlist')
+			commentList:$('#commentlist'),
+			
 	}
 	
 	//댓글불러오기
@@ -85,9 +87,29 @@
 				commentListPage();
 			}
 		
-		})
+		});
 	}
 	
+	//function commentdel(commentNo) {
+	//	if( 세션의 사용자번호 == /*댓글 작성자 번호*/)
+	//	var result = confirm('댓글을 삭제하시겠습니까?');
+	//	if(result===true) {
+		//	//댓글 삭제 처리
+			//$.ajax({
+				//type: "post",
+		//		url: "${path}/resFeedback/resFeedbackDelete.do",
+		//		data: {
+		//			"commentNo" : 
+		//		}
+	//			error: function(){
+	//				alert("통신 실패");
+	//			},
+	//			success: function
+	//		})
+	//	} else {
+			// 이전 화면으로 돌아가 놔두기.
+	//	}
+//	}
 	
 
 </script>

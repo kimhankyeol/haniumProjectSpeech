@@ -3,15 +3,6 @@
 
 <mapper namespace="poly.persistance.mapper.FeedbackCommentMapper">
 
-
-<insert id="commentReg" parameterType="FeedbackCommentDTO">
-INSERT INTO feedback_comment (
-	feedback_no, commenttext, regno, updno
-)VALUES(
-	#{feedbackNo}, #{commenttext}, #{regNo}, #{regNo}
-)
-</insert>
-
 <!-- 함수의 매개변수 이름과 sql쿼리문에 들어갈 변수 이름을 맞춰... 그리고 DTO의 변수들과 이름을 맞출 것은 resultType -->
 <select id="fcList" parameterType="String" resultType="FeedbackCommentDTO">
 SELECT
@@ -23,5 +14,13 @@ FROM feedback_comment
 WHERE feedback_no = #{feedbackNo}
 ORDER BY regdate
 </select>
+
+<insert id="commentReg" parameterType="FeedbackCommentDTO">
+INSERT INTO feedback_comment (
+	feedback_no, commenttext, regno, updno
+)VALUES(
+	#{feedbackNo}, #{commenttext}, #{regNo}, #{regNo}
+)
+</insert>
 
 </mapper>

@@ -67,10 +67,9 @@ public class ResFeedbackController {
 			e.printStackTrace();
 		}
 		
-		//fcDTO = resFeedbackService.commentReg 
 		
 		log.info("getResDetail success.");
-		//log.info("commentReg success.");
+		
 		
 		model.addAttribute("rDTO", rDTO);
 		
