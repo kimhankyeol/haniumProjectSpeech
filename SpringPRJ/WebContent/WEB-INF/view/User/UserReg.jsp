@@ -1,57 +1,132 @@
-<%@page import="poly.dto.UserDTO"%>
-<%@page import="poly.util.CmmUtil"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-
-<%
-	String dupId = CmmUtil.nvl((String) request.getAttribute("dupId"));
-	/* 	UserDTO uDTO = (UserDTO)request.getAttribute("uDTO");
-		String prevId = CmmUtil.nvl(uDTO.getId()); */
-%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-<head>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Insert title here</title>
-</head>
-<body>
-	<div>회원가입</div>
-	<form name="joinForm" method="POST" action="/UserRegProc.do"
+<html lang="en" data-textdirection="ltr" class="loading">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <title>두루마리 회원가입</title>
+    <link rel="apple-touch-icon" sizes="60x60" href="resources/app-assets/images/ico/apple-icon-60.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="resources/app-assets/images/ico/apple-icon-76.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="resources/app-assets/images/ico/apple-icon-120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="resources/app-assets/images/ico/apple-icon-152.png">
+    <link rel="shortcut icon" type="image/x-icon" href="resources/app-assets/images/ico/favicon.ico">
+    <link rel="shortcut icon" type="image/png" href="resources/app-assets/images/ico/favicon-32.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <!-- BEGIN VENDOR CSS-->
+    <link rel="stylesheet" type="text/css" href="resources/app-assets/css/bootstrap.css">
+    <!-- font icons-->
+    <link rel="stylesheet" type="text/css" href="resources/app-assets/fonts/icomoon.css">
+    <link rel="stylesheet" type="text/css" href="resources/app-assets/fonts/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" type="text/css" href="resources/app-assets/vendors/css/extensions/pace.css">
+    <!-- END VENDOR CSS-->
+    <!-- BEGIN ROBUST CSS-->
+    <link rel="stylesheet" type="text/css" href="resources/app-assets/css/bootstrap-extended.css">
+    <link rel="stylesheet" type="text/css" href="resources/app-assets/css/app.css">
+    <link rel="stylesheet" type="text/css" href="resources/app-assets/css/colors.css">
+    <!-- END ROBUST CSS-->
+    <!-- BEGIN Page Level CSS-->
+    <link rel="stylesheet" type="text/css" href="resources/app-assets/css/core/menu/menu-types/vertical-menu.css">
+    <link rel="stylesheet" type="text/css" href="resources/app-assets/css/core/menu/menu-types/vertical-overlay-menu.css">
+    <link rel="stylesheet" type="text/css" href="resources/app-assets/css/pages/login-register.css">
+    <!-- END Page Level CSS-->
+    <!-- BEGIN Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="resources/assets/css/style.css">
+    <!-- END Custom CSS-->
+  </head>
+  <body data-open="click" data-menu="vertical-menu" data-col="1-column" class="vertical-layout vertical-menu 1-column  blank-page blank-page">
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+    <div class="app-content content container-fluid">
+      <div class="content-wrapper">
+        <div class="content-header row">
+        </div>
+        <div class="content-body"><section class="flexbox-container">
+    <div class="col-md-4 offset-md-4 col-xs-10 offset-xs-1 box-shadow-2 p-0">
+		<div class="card border-grey border-lighten-3 px-2 py-2 m-0">
+			<div class="card-header no-border">
+				<div class="card-title text-xs-center">
+					<img src="resources/app-assets/images/logo/robust-logo-dark.png" alt="branding logo">
+				</div>
+				<h6 class="card-subtitle line-on-side text-muted text-xs-center font-small-3 pt-2"><span>회원가입</span></h6>
+			</div>
+			<div class="card-body collapse in">	
+				<div class="card-block">
+					<form autocomplete="off" class="form-horizontal form-simple" name="joinForm" method="POST" action="/UserRegProc.do"
 		onsubmit="return validity['id']&&validity['email']&&validity['pwConfirm'];">
-		<div style="display: flex">
-			<div>회원 아이디</div>
-			<input type="text" name="id" id="id" pattern="[A-Za-z0-9_]{1,}"
-				title="영문, 숫자, 언더바(_)만 사용 가능합니다(숫자로 시작 불가)" value="">
-			<button id="idCheck" disabled="disabled">이이디 중복확인</button>
-			<span style="color: red" id="idMsg"></span>
+						<fieldset class="form-group position-relative has-icon-left mb-1">
+							<input type="text" class="form-control form-control-lg input-lg" id="id" name="id" placeholder="아이디">
+							<button disabled="disabled" id="idCheck" class="btn btn-secondary btn-lg btn-block">아이디 중복확인</button>
+							<div class="form-control-position">
+							    <i class="icon-head"></i>
+							</div>
+							<div style="color: red; height:1.6em;" id="idMsg"></div>
+						</fieldset>
+						<fieldset class="form-group position-relative has-icon-left mb-1">
+							<input type="email" class="form-control form-control-lg input-lg" id="email" name="email" placeholder="이메일" required>
+							<button disabled="disabled" id="emailCheck" class="btn btn-secondary btn-lg btn-block">이메일 중복확인</button>
+							<div class="form-control-position">
+							    <i class="icon-mail6"></i>
+							</div>
+							<div id="emailMsg" style="height:1.6em"></div>
+						</fieldset>
+						<fieldset class="form-group position-relative has-icon-left mb-1">
+							<input type="password" class="form-control form-control-lg input-lg" id="pw" name="passwd" placeholder="비밀번호" required style="margin-bottom:0">
+							<div class="form-control-position">
+							    <i class="icon-key3"></i>
+							</div>
+							<div style="height:1.6em"></div>
+						</fieldset>
+						<fieldset class="form-group position-relative has-icon-left mb-1">
+							<input type="password" class="form-control form-control-lg input-lg" id="pwConfirm" placeholder="비밀번호 확인" required style="margin-bottom:0">
+							<div class="form-control-position">
+							    <i class="icon-key3"></i>
+							</div>
+							<div id="pwConfirmMsg" style="height:1.6em"></div>
+						</fieldset>
+						<fieldset class="form-group position-relative has-icon-left">
+							<input type="text" class="form-control form-control-lg input-lg" id="interest" name="interest" placeholder="관심분야">
+							<div class="form-control-position">
+							    <i class="icon-star-full"></i>
+							</div>
+							<div style="color: red; height:1.6em;" id="idMsg"></div>
+						</fieldset>
+						<button type="submit" disabled="disabled" id="submitBtn" class="btn btn-primary btn-lg btn-block"><i class="icon-unlock2"></i> 가입하기</button>
+					</form>
+				</div>
+				<p class="text-xs-center">이미 계정이 있으신가요? <a href="login.do" class="card-link">로그인</a></p>
+			</div>
 		</div>
-		<div style="display: flex">
-			<div>회원 비밀번호</div>
-			<input id="pw" type="password" name="passwd">
-		</div>
-		<div style="display: flex">
-			<div>비밀번호 확인</div>
-			<input id="pwConfirm" type="password" name="pwdChk">
-			<span id="pwConfirmMsg"></span>
-		</div>
+	</div>
+</section>
+        </div>
+      </div>
+    </div>
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
 
-
-		<div style="display: flex">
-			<div>회원 이메일</div>
-			<input type="email" name="email" id="email">
-			<button id="emailCheck" disabled="disabled">이메일 중복확인</button>
-			<span id="emailMsg"></span>
-		</div>
-		<div style="display: flex">
-			<div>관심업종</div>
-			<input type="text" name="interest" maxlength="4" pattern="[0-9]{1,}">
-		</div>
-		<input disabled="disabled" type="submit" value="등록하기" id="submitBtn">
-	</form>
-	<script>
+    <!-- BEGIN VENDOR JS-->
+    <script src="resources/app-assets/js/core/libraries/jquery.min.js" type="text/javascript"></script>
+    <script src="resources/app-assets/vendors/js/ui/tether.min.js" type="text/javascript"></script>
+    <script src="resources/app-assets/js/core/libraries/bootstrap.min.js" type="text/javascript"></script>
+    <script src="resources/app-assets/vendors/js/ui/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
+    <script src="resources/app-assets/vendors/js/ui/unison.min.js" type="text/javascript"></script>
+    <script src="resources/app-assets/vendors/js/ui/blockUI.min.js" type="text/javascript"></script>
+    <script src="resources/app-assets/vendors/js/ui/jquery.matchHeight-min.js" type="text/javascript"></script>
+    <script src="resources/app-assets/vendors/js/ui/screenfull.min.js" type="text/javascript"></script>
+    <script src="resources/app-assets/vendors/js/extensions/pace.min.js" type="text/javascript"></script>
+    <!-- BEGIN VENDOR JS-->
+    <!-- BEGIN PAGE VENDOR JS-->
+    <!-- END PAGE VENDOR JS-->
+    <!-- BEGIN ROBUST JS-->
+    <script src="resources/app-assets/js/core/app-menu.js" type="text/javascript"></script>
+    <script src="resources/app-assets/js/core/app.js" type="text/javascript"></script>
+    <!-- END ROBUST JS-->
+    <!-- BEGIN PAGE LEVEL JS-->
+    <!-- END PAGE LEVEL JS-->
+    <!--  유효성 검사 -->
+    <script>
 	// input validation script
 	
 	// ID validation
@@ -117,7 +192,7 @@
 				}else{
 					msg="사용 가능한 아이디입니다.";
 					valid = true;
-					$("#pw").focus();
+					$("#email").focus();
 					
 					
 				}
@@ -237,6 +312,5 @@
 	});
 	
 </script>
-</body>
-
+  </body>
 </html>

@@ -409,7 +409,7 @@ Bootstrap Enhance */
   background-color: #cccccc; }
 
 .btn-primary ~ .dropdown-menu .dropdown-item.active {
-  background-color: #967ADC; }
+  background-color: #003074; }
 
 .btn-success ~ .dropdown-menu .dropdown-item.active {
   background-color: #37BC9B; }
@@ -1086,9 +1086,9 @@ button:focus {
     background-color: #687077; }
 
 .tag-primary {
-  background-color: #967ADC; }
+  background-color: #003074; }
   .tag-primary.tag-glow {
-    box-shadow: 0px 0px 10px #967ADC; }
+    box-shadow: 0px 0px 10px #003074; }
   .tag-primary[href]:focus {
     background-color: #7652d1; }
   .tag-primary[href]:hover {
