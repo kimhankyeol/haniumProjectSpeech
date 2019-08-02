@@ -103,7 +103,7 @@ public class NotiController {
 		NotiDTO nDTO = new NotiDTO();
 		nDTO.setTitle(title);
 		nDTO.setContent(contents);
-		nDTO.setSeq(seq);
+		nDTO.setNotiNo(seq);
 		
 		int result = 0;
 		

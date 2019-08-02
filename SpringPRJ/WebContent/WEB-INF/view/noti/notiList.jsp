@@ -12,6 +12,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 <div style="width:800px; margin-left:5%; margin-top:5%">
 	<div style="text-align:center; font-size:2em">게시판</div>
 	<table class="table table-striped">
@@ -25,8 +26,8 @@
 		<tbody>
 		<%for(NotiDTO nDTO : nList) { %>
 			<tr>
-				<td><%=nDTO.getSeq() %></td>
-				<td><a href="/noti/notiDetail.do?seq=<%=nDTO.getSeq()%>"><%=nDTO.getTitle() %></a></td>
+				<td><%=nDTO.getNotiNo() %></td>
+				<td><a href="/noti/notiDetail.do?seq=<%=nDTO.getNotiNo()%>"><%=nDTO.getTitle() %></a></td>
 				<td><%=nDTO.getRegDate() %></td>
 			</tr>
 		<% } %>

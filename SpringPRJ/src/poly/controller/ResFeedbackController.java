@@ -40,7 +40,7 @@ public class ResFeedbackController {
 		
 		model.addAttribute("rList", rList);
 		
-		rList = null;
+		
 		
 		log.info(this.getClass().getName() + ".ResList end!");
 		
@@ -54,7 +54,7 @@ public class ResFeedbackController {
 		
 		log.info(this.getClass().getName());
 		
-		String feedbackNo = request.getParameter("feedback_no");
+		String feedbackNo = request.getParameter("postno");
 		
 		ResFeedbackDTO rDTO = new ResFeedbackDTO();
 		//FeedbackCommentDto fcDTO = new FeedbackCommentDTO();
@@ -72,8 +72,7 @@ public class ResFeedbackController {
 		//log.info("commentReg success.");
 		
 		model.addAttribute("rDTO", rDTO);
-		
-		rDTO = null;
+	
 		
 		return "/resFeedback/resDetailFeedback";
 	}

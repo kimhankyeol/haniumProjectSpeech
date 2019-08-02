@@ -12,7 +12,7 @@
 </head>
 <body>
 <form action="/noti/notiModify.do" method="post">
-	<input type="hidden" name="seq" value="<%=nDTO.getSeq() %>">
+	<input type="hidden" name="seq" value="<%=nDTO.getNotiNo() %>">
 	<table border="1">
 		<col width="100px" />
 		<col width="500px" />
@@ -28,7 +28,7 @@
 		<tr>
 			<td align="center" colspan="2">
 				<input type="submit" value="수정" />
-				<input type="button" onclick="location.href='/noti/notiDelete.do?seq=<%=nDTO.getSeq() %>>'" value="삭제" />
+				<input type="button" onclick="location.href='/noti/notiDelete.do?seq=<%=nDTO.getNotiNo() %>>'" value="삭제" />
 				<input type="button" onclick="location.href='/noti/notiList.do'" value="돌아가기" />
 			</td>
 		</tr>

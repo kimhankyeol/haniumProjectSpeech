@@ -2,16 +2,51 @@ package poly.dto;
 
 public class NotiDTO {
 
+	private String notiNo;
+	private String userNo;
 	private String title;
 	private String content;
+	private String viewCount;
 	private String regDate;
-	private String seq;
+	private String regNo;
+	private String updDate;
+	private String updNo;
 	
-	public String getSeq() {
-		return seq;
+	public String getNotiNo() {
+		return notiNo;
 	}
-	public void setSeq(String seq) {
-		this.seq = seq;
+	public void setNotiNo(String notiNo) {
+		this.notiNo = notiNo;
+	}
+	public String getUserNo() {
+		return userNo;
+	}
+	public void setUserNo(String userNo) {
+		this.userNo = userNo;
+	}
+	public String getViewCount() {
+		return viewCount;
+	}
+	public void setViewCount(String viewCount) {
+		this.viewCount = viewCount;
+	}
+	public String getRegNo() {
+		return regNo;
+	}
+	public void setRegNo(String regNo) {
+		this.regNo = regNo;
+	}
+	public String getUpdDate() {
+		return updDate;
+	}
+	public void setUpdDate(String updDate) {
+		this.updDate = updDate;
+	}
+	public String getUpdNo() {
+		return updNo;
+	}
+	public void setUpdNo(String updNo) {
+		this.updNo = updNo;
 	}
 	public String getTitle() {
 		return title;
