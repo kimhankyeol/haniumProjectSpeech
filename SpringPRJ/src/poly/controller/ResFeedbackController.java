@@ -67,7 +67,7 @@ public class ResFeedbackController {
 			e.printStackTrace();
 		}
 		
-		
+		log.info("feedback_no : " + feedbackNo);
 		log.info("getResDetail success.");
 		
 		

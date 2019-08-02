@@ -33,7 +33,7 @@
 			commentList:$('#commentlist'),
 			
 	}
-	
+	console.log("current feedback : " + <%=feedback_no%>);
 	//댓글불러오기
 	function commentListPage() {
 		$.ajax({
