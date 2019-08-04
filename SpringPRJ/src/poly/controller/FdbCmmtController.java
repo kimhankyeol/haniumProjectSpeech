@@ -44,6 +44,7 @@ public class FdbCmmtController {
 	public @ResponseBody void CommentDel(HttpSession session, HttpServletRequest request, Model modle, String commentNo) throws Exception{
 		
 		log.info(this.getClass().getName());
+		log.info(commentNo);
 		
 		try {
 			feedbackCommentService.commentDel(commentNo);

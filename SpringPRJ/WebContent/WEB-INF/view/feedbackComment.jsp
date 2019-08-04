@@ -26,7 +26,7 @@
 <script>
 	const selector = {
 			commentText:$('#commenttext'),
-		//	commentNum:$('#commentNum'),
+			commentNum:$('#commentNum'),
 			commentReg:$('#commentreg'),		
 			commentEdit:$('#commentedit'),
 			commentDel:$('#commentdel'),
@@ -90,27 +90,31 @@
 		});
 	}
 	
-	//function commentdel(commentNo) {
-	//	if( 세션의 사용자번호 == /*댓글 작성자 번호*/)
-	//	var result = confirm('댓글을 삭제하시겠습니까?');
-	//	if(result===true) {
-		//	//댓글 삭제 처리
-			//$.ajax({
-				//type: "post",
-		//		url: "${path}/resFeedback/resFeedbackDelete.do",
-		//		data: {
-		//			"commentNo" : 
-		//		}
-	//			error: function(){
-	//				alert("통신 실패");
-	//			},
-	//			success: function
-	//		})
-	//	} else {
-			// 이전 화면으로 돌아가 놔두기.
-	//	}
-//	}
-	
+	function commentdel(commentNo) {
+		
+		console.log(commentNo);
+		console.log(selector.commentNum.innerHTML);
+		
+		var result = confirm('댓글을 삭제하시겠습니까?');
+			if(result) {
+			//댓글 삭제 처리
+				$.ajax({
+					type: "post",
+					url: "${path}/resFeedback/resFeedbackDelete.do",
+					data: {
+						"commentNo" : commentNo
+					},
+					error: function(){
+						alert("통신 실패");
+					},
+					success: function(data){
+						console.log(data);
+						commentListPage();
+				}
+					
+			})
+		}
+	}
 
 </script>
 
