@@ -53,6 +53,7 @@ public class NotiController {
 		}
 		return "/redirect";
 	}
+	
 	@RequestMapping(value="/noti/notiList")
 	public String NotiList(Model model) {
 		List<NotiDTO> nList = new ArrayList<>();
@@ -126,10 +127,12 @@ public class NotiController {
 	public String NotiDelete(HttpServletRequest request, Model model) {
 		NotiDTO nDTO = new NotiDTO();
 		
+		String seq = request.getParameter("seq");
+		
 		int result = 0;
 		
 		try {
-			result = notiService.deleteNoti("seq");
+			result = notiService.deleteNoti(seq);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -144,6 +147,4 @@ public class NotiController {
 		
 		return "/redirect";
 	}
-
-	
 }

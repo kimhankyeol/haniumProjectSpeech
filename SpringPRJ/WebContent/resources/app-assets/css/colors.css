@@ -434,42 +434,42 @@ input:focus ~ .bg-primary {
   background: rgba(169, 146, 226, 0.8); }
 
 .primary {
-  color: #003074 !important; }
+  color: #967ADC !important; }
 
 .bg-primary {
-  background-color: #003074 !important; }
+  background-color: #967ADC !important; }
   .bg-primary .card-header, .bg-primary .card-footer {
     background-color: transparent; }
 
 .alert-primary {
-  border-color: #003074 !important;
+  border-color: #967ADC !important;
   background-color: #c3b3eb !important;
   color: #3d2281 !important; }
   .alert-primary .alert-link {
     color: #2e1a61 !important; }
 
 .border-primary {
-  border-color: #003074; }
+  border-color: #967ADC; }
 
 .bg-primary.tag-glow, .border-primary.tag-glow {
-  box-shadow: 0px 0px 10px #003074; }
+  box-shadow: 0px 0px 10px #967ADC; }
 
 .overlay-primary {
-  background: #003074;
+  background: #967ADC;
   /* The Fallback */
   background: rgba(150, 122, 220, 0.8); }
 
 .card-outline-primary {
   border-width: 1px;
   border-style: solid;
-  border-color: #003074;
+  border-color: #967ADC;
   background-color: transparent; }
   .card-outline-primary .card-header, .card-outline-primary .card-footer {
     background-color: transparent; }
 
 .btn-primary {
-  border-color: #003074;
-  background-color: #003074;
+  border-color: #967ADC;
+  background-color: #967ADC;
   color: #FFFFFF; }
   .btn-primary:hover {
     border-color: #AC92EC;
@@ -477,43 +477,43 @@ input:focus ~ .bg-primary {
     color: #FFF !important; }
 
 .btn-outline-primary {
-  border-color: #003074;
+  border-color: #967ADC;
   background-color: transparent;
-  color: #003074; }
+  color: #967ADC; }
   .btn-outline-primary:hover {
-    background-color: #003074;
+    background-color: #967ADC;
     color: #FFF !important; }
 
 .progress-primary[value]::-webkit-progress-value {
-  background-color: #003074; }
+  background-color: #967ADC; }
 
 .progress-primary[value]::-moz-progress-bar {
-  background-color: #003074; }
+  background-color: #967ADC; }
 
 .progress-primary[value]::-ms-fill {
-  background-color: #003074; }
+  background-color: #967ADC; }
 
 @media screen and (min-width: 0\0) {
   .progress-primary .progress-bar {
-    background-color: #003074; } }
+    background-color: #967ADC; } }
 
 input:focus ~ .bg-primary {
-  box-shadow: 0 0 0 0.075rem #fff, 0 0 0 0.21rem #003074 !important; }
+  box-shadow: 0 0 0 0.075rem #fff, 0 0 0 0.21rem #967ADC !important; }
 
 .border-primary {
-  border: 1px solid #003074 !important; }
+  border: 1px solid #967ADC !important; }
 
 .border-top-primary {
-  border-top: 1px solid #003074; }
+  border-top: 1px solid #967ADC; }
 
 .border-bottom-primary {
-  border-bottom: 1px solid #003074; }
+  border-bottom: 1px solid #967ADC; }
 
 .border-left-primary {
-  border-left: 1px solid #003074; }
+  border-left: 1px solid #967ADC; }
 
 .border-right-primary {
-  border-right: 1px solid #003074; }
+  border-right: 1px solid #967ADC; }
 
 .primary.darken-1 {
   color: #8362D6 !important; }
