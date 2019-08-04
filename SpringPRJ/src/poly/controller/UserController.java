@@ -32,7 +32,7 @@ public class UserController {
 		if(userNo==null) {
 			return "/login";
 		}else {
-			return "/main";
+			return "/home";
 		}
 		
 	}

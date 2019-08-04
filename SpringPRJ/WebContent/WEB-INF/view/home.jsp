@@ -1,4 +1,4 @@
-
+<%@include file="User/session.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -161,9 +161,9 @@
               
               
               <!-- 사용자 정보관리창 설정 -->
-              <li class="dropdown dropdown-user nav-item"><a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link dropdown-user-link"><span class="avatar avatar-online"><img src="/resources/app-assets/images/portrait/small/avatar-s-1.png" alt="avatar"><i></i></span><span class="user-name">SuperDev</span></a>
+              <li class="dropdown dropdown-user nav-item"><a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link dropdown-user-link"><span class="avatar avatar-online"><img src="/resources/app-assets/images/portrait/small/avatar-s-1.png" alt="avatar"><i></i></span><span class="user-name"><%=id %>님</span></a>
                 <div class="dropdown-menu dropdown-menu-right"><a href="#" class="dropdown-item"><i class="icon-head"></i>정보 수정</a><a href="#" class="dropdown-item"><i class="icon-mail6"></i>메일함</a><a href="#" class="dropdown-item"><i class="icon-clipboard2"></i>할 일</a><a href="#" class="dropdown-item"><i class="icon-calendar5"></i>캘린더</a>
-                  <div class="dropdown-divider"></div><a href="#" class="dropdown-item"><i class="icon-power3"></i>로그아웃</a>
+                  <div class="dropdown-divider"></div><a href="/logout.do" class="dropdown-item"><i class="icon-power3"></i>로그아웃</a>
                 </div>
               </li>
             </ul>
@@ -189,6 +189,8 @@
       <div class="main-menu-content">
         <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
           <li class=" nav-item"><a href="/home.do"><i class="icon-home3"></i>홈</a>
+          </li>
+          <li class=" nav-item"><a href="/noti/notiList.do"><i class="icon-bullhorn"></i><span data-i18n="nav.bootstrap_tables.table_basic" class="menu-title">공지사항</span></a>
           </li>
           <li class="nav-item"><a href="#"><i class="icon-stack-2"></i><span data-i18n="nav.page_layouts.main" class="menu-title">내 정보</span></a>
             <ul class="menu-content">
