@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<link href="resources/app-assets/css/bootstrap.css" rel="stylesheet" >
+<link href="resources/app-assets/css/bootstrap.css" rel="stylesheet">
 
 
 <title>Insert title here</title>
