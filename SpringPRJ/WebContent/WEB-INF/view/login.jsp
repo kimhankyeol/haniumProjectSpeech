@@ -73,7 +73,7 @@
                                     <label for="remember-me"> 아이디 저장</label>
                                 </fieldset>
                             </div>
-                            <div class="col-md-6 col-xs-12 text-xs-center text-md-right"><a href="recover-password.html" class="card-link">Forgot Password?</a></div>
+                            <div class="col-md-6 col-xs-12 text-xs-center text-md-right"><a href="recover-password.html" class="card-link">아이디 찾기</a></div>
                         </fieldset>
                         <button type="submit" class="btn btn-primary btn-lg btn-block"><i class="icon-unlock2"></i> 로그인</button>
                     </form>
@@ -81,7 +81,7 @@
             </div>
             <div class="card-footer">
                 <div class="">
-                    <p class="float-sm-left text-xs-center m-0"><a href="recover-password.html" class="card-link">Recover password</a></p>
+                    <p class="float-sm-left text-xs-center m-0"><a href="recover-password.html" class="card-link">암호 찾기</a></p>
                     <p class="float-sm-right text-xs-center m-0">회원이 아니신가요? <a href="UserReg.do" class="card-link">회원가입</a></p>
                 </div>
             </div>

@@ -1,13 +1,6 @@
-
-<%@page import="java.util.List"%>
-<%@page import="poly.dto.NotiDTO"%>
+<%@include file="User/session.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-	List<NotiDTO> nList = (List<NotiDTO>)request.getAttribute("nList");
-	NotiDTO nDTO = (NotiDTO)request.getAttribute("nDTO");
-
-%>
 <!DOCTYPE html>
 <html lang="en" data-textdirection="ltr" class="loading">
   <head>
@@ -50,6 +43,7 @@
   </head>
   <body data-open="click" data-menu="vertical-menu" data-col="2-columns" class="vertical-layout vertical-menu 2-columns  fixed-navbar">
 
+	<!-- 왼쪽 상단 robust 아이콘 설정  -->
     <!-- navbar-fixed-top-->
     <nav class="header-navbar navbar navbar-with-menu navbar-fixed-top navbar-semi-dark navbar-shadow">
       <div class="navbar-wrapper">
@@ -167,9 +161,9 @@
               
               
               <!-- 사용자 정보관리창 설정 -->
-              <li class="dropdown dropdown-user nav-item"><a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link dropdown-user-link"><span class="avatar avatar-online"><img src="/resources/app-assets/images/portrait/small/avatar-s-1.png" alt="avatar"><i></i></span><span class="user-name">SuperDev</span></a>
+              <li class="dropdown dropdown-user nav-item"><a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link dropdown-user-link"><span class="avatar avatar-online"><img src="/resources/app-assets/images/portrait/small/avatar-s-1.png" alt="avatar"><i></i></span><span class="user-name"><%=id %>님</span></a>
                 <div class="dropdown-menu dropdown-menu-right"><a href="#" class="dropdown-item"><i class="icon-head"></i>정보 수정</a><a href="#" class="dropdown-item"><i class="icon-mail6"></i>메일함</a><a href="#" class="dropdown-item"><i class="icon-clipboard2"></i>할 일</a><a href="#" class="dropdown-item"><i class="icon-calendar5"></i>캘린더</a>
-                  <div class="dropdown-divider"></div><a href="#" class="dropdown-item"><i class="icon-power3"></i>로그아웃</a>
+                  <div class="dropdown-divider"></div><a href="/logout.do" class="dropdown-item"><i class="icon-power3"></i>로그아웃</a>
                 </div>
               </li>
             </ul>
@@ -195,6 +189,8 @@
       <div class="main-menu-content">
         <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
           <li class=" nav-item"><a href="/home.do"><i class="icon-home3"></i>홈</a>
+          </li>
+          <li class=" nav-item"><a href="/noti/notiList.do"><i class="icon-bullhorn"></i><span data-i18n="nav.bootstrap_tables.table_basic" class="menu-title">공지사항</span></a>
           </li>
           <li class="nav-item"><a href="#"><i class="icon-stack-2"></i><span data-i18n="nav.page_layouts.main" class="menu-title">내 정보</span></a>
             <ul class="menu-content">
@@ -281,59 +277,6 @@
     </div>
     <!-- / main menu-->
 
-    <div class="app-content content container-fluid">
-      <div class="content-wrapper">
-        <div class="content-header row">
-          <div class="content-header-left col-md-6 col-xs-12 mb-1">
-            <h2 class="content-header-title">공지사항 게시판</h2>
-          </div>
-
-        </div>
-        <div class="content-body"><!-- Basic Tables start -->
-<div class="row">
-    <div class="col-xs-12">
-        <div class="card">
-            <div class="card-header">
-                <h4 class="card-title">Basic Tables</h4>
-                <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
-                <div class="heading-elements">
-                    <ul class="list-inline mb-0">
-                        <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
-                        <li><a data-action="reload"><i class="icon-reload"></i></a></li>
-                        <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
-                        <li><a data-action="close"><i class="icon-cross2"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="card-body collapse in">
-                <div class="card-block card-dashboard">
-                    
-                    <div class="table-responsive">
-                        <form action="/noti/notiModifyProc.do" method="post">
-	<input type="hidden" name="seq" value="<%=nDTO.getSeq() %>">
-	<table border="1">
-		<col width="100px" />
-		<col width="500px" />
-		<tr>
-			<td align="center">제목</td>
-			<td><input type="text" name="title" maxlength="100" style="width:450px" value="<%=nDTO.getTitle() %>"/></td>
-		</tr>
-		<tr>
-			<td colspan="2">
-				<textarea name="contents" style="width:550px; height:400px"><%=nDTO.getContent()%></textarea>
-			</td>
-		</tr>
-		<tr>
-			<td align="center" colspan="2">
-				<input type="submit" value="확인" />
-				<input type="button" onclick="location.href='/noti/notiDetail.do?seq=<%=nDTO.getSeq() %>>'" value="취소" />
-			</td>
-		</tr>
-	</table>
-</form>
-                    </div>
-                </div>
-  
     <!-- ////////////////////////////////////////////////////////////////////////////-->
 
 
@@ -363,4 +306,5 @@
     <script src="/resources/app-assets/js/scripts/pages/dashboard-lite.js" type="text/javascript"></script>
     <!-- END PAGE LEVEL JS-->
   </body>
+</html>
 </html>

@@ -12,8 +12,8 @@ INSERT INTO NOTI(
 SELECT
 	TITLE AS title,
 	CONTENT AS content,
-	REG_DT AS regDate,
-	NOTI_SEQ AS seq
+	REGDATE AS regDate,
+	NOTI_NO AS seq
 FROM
 	NOTI
 </select>
@@ -21,12 +21,12 @@ FROM
 SELECT
 	TITLE AS title,
 	CONTENT AS content,
-	REG_DT AS regDate,
-	NOTI_SEQ AS seq
+	REGDATE AS regDate,
+	NOTI_NO AS seq
 FROM
 	NOTI
 WHERE
-	NOTI_SEQ = #{seq}
+	NOTI_NO = #{seq}
 </select>
 <update id="updateNoti" parameterType="NotiDTO">
 UPDATE
@@ -35,12 +35,12 @@ SET
 	TITLE = #{title},
 	CONTENT = #{content}
 WHERE
-	NOTI_SEQ = #{seq}
+	NOTI_NO = #{seq}
 </update>
 <delete id="deleteNoti" parameterType="String">
 DELETE
 	FROM NOTI
 WHERE
-	NOTI_SEQ = #{seq}
+	NOTI_NO = #{seq}
 </delete>
 </mapper>
