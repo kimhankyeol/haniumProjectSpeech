@@ -26,7 +26,6 @@
 <script>
 	const selector = {
 			commentText:$('#commenttext'),
-			commentNum:$('#commentNum'),
 			commentReg:$('#commentreg'),		
 			commentEdit:$('#commentedit'),
 			commentDel:$('#commentdel'),
@@ -88,6 +87,11 @@
 			}
 		
 		});
+	}
+	
+	function commentedit(commentNo){
+		console.log(commentNo);
+		var edit_cont = '';
 	}
 	
 	function commentdel(commentNo) {
