@@ -72,6 +72,9 @@
 		 console.log(feedbackNo);
 		 console.log(commentInfo);
 		 
+		 function regConfirm(){
+			 alert('후기를 남겼습니다!');
+		 }
 		
 		$.ajax({
 			type: "post",
@@ -83,10 +86,15 @@
 			success: function(data){ //콜백함수
 				selector.commentText.val(function()
 						{return ''}); //댓글란에 작성한 내용 지우기.
+				regConfirm();
 				commentListPage();
 			}
 		
 		});
+	}
+	
+	function delConfirm() {
+		alert('후기를 삭제합니다.');
 	}
 	
 	function commentedit(commentNo){
@@ -95,8 +103,6 @@
 	}
 	
 	function commentdel(commentNo) {
-		
-		console.log(commentNo);
 		
 		var result = confirm('댓글을 삭제하시겠습니까?');
 			if(result) {
@@ -113,6 +119,7 @@
 					success: function(data){
 						console.log(data);
 						commentListPage();
+						delConfirm();
 				}
 					
 			})
