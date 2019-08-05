@@ -30,6 +30,7 @@
           </div>
         </div>
         <div class="content-body"><!-- Basic Tables start -->
+        <!-- 공지사항 화면 안뜨던것의 문제 -->
 <div class="row">
     <div class="col-xs-12">
         <div class="card">
