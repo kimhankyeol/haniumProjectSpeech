@@ -22,6 +22,20 @@ public class UserController {
 	@Resource(name = "UserService")
 	private IUserService userService;
 
+	@RequestMapping(value="login")
+	public String Login() throws Exception{
+		log.info("accessed login");
+
+		return "/login";
+	}
+	
+	@RequestMapping(value="menu")
+	public String Menu() throws Exception{
+		log.info("accessed login");
+
+		return "/menu";
+	}
+	
 	
 	@RequestMapping(value="index")
 	public String Index(HttpSession session) {
