@@ -20,12 +20,12 @@
 
 </head>
 <body>
-	current user : <%=userNo %>
+	<p>current user : <%=userNo %></p>
 	<% 	for(FeedbackCommentDTO fcDTO : fcDTOs) {%>
 			<div style="min-width: 30%; max-width: 50%;
 						margin:0 auto;
 						text-align:center; border: 1px solid black; border-radius: 2px; padding: 3px;">
-				<span style="padding:0 1px;"><%=fcDTO.getCommentNo() %></span>
+				<span style="padding:0 1px; display:none;"><%=fcDTO.getCommentNo() %></span>
 				<span style="padding:0 1px;"><%=fcDTO.getRegNo() %></span>
 				<span style="padding:0 1px;"><%=fcDTO.getRegDate() %></span>
 				<div style="min-height: 64px; padding: 6px 14px;"><%=fcDTO.getCommenttext() %></div>

@@ -263,7 +263,7 @@
             <ul class="menu-content">
               <li><a href="/noti/notiList.do" data-i18n="nav.cards.card_bootstrap" class="menu-item">채용공고 게시판</a>
               </li>
-              <li><a href="card-actions.html" data-i18n="nav.cards.card_actions" class="menu-item">피드백 게시판</a>
+              <li><a href="/resFeedback/resList.do" data-i18n="nav.cards.card_actions" class="menu-item">피드백 게시판</a>
               </li>
               <li><a href="card-actions.html" data-i18n="nav.cards.card_actions" class="menu-item">면접후기 게시판</a>
               </li>
@@ -359,5 +359,5 @@
     <script src="/resources/app-assets/js/scripts/pages/dashboard-lite.js" type="text/javascript"></script>
     <!-- END PAGE LEVEL JS-->
   </body>
-</html>
+
 </html>

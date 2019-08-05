@@ -13,12 +13,12 @@
 </head>
 <body>
 	<div style="width: auto; text-align:center; ">
-	<c:if test="${sessionScope.userid != null }"> 
+	  
 		<textarea rows="5" cols="80" id="commenttext"
 		placeholder="들어본 후 회원님의 평가를 남겨주세요!"></textarea>
 		<br>
 		<button type="button" id="commentreg">댓글쓰기</button>
-	</c:if>
+	
 	</div>
 	<div id="commentlist"></div>
 	
@@ -97,7 +97,6 @@
 	function commentdel(commentNo) {
 		
 		console.log(commentNo);
-		console.log(selector.commentNum.innerHTML);
 		
 		var result = confirm('댓글을 삭제하시겠습니까?');
 			if(result) {
