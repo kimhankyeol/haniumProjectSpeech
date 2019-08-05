@@ -5,7 +5,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>비밀번호 찾기</title>
-	<%@include file="../head.jsp" %>
+	<%@include file="../header.jsp" %>
 </head>
 <body>
 

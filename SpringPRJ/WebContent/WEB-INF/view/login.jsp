@@ -4,7 +4,7 @@
 <html lang="en" data-textdirection="ltr" class="loading">
   <head>
     <title>두루마리</title>
-    <%@include file="head.jsp" %>
+    <%@include file="header.jsp" %>
   </head>
   <body data-open="click" data-menu="vertical-menu" data-col="1-column" class="vertical-layout vertical-menu 1-column  blank-page blank-page">
     <!-- ////////////////////////////////////////////////////////////////////////////-->
