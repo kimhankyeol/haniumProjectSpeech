@@ -23,4 +23,8 @@ INSERT INTO feedback_comment (
 )
 </insert>
 
+<delete id="commentDel" parameterType="String">
+DELETE FROM feedback_comment
+WHERE comment_no = #{commentNo}
+</delete>
 </mapper>
