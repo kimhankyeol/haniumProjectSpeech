@@ -5,10 +5,7 @@
 <html lang="en" data-textdirection="ltr" class="loading">
 
   <head>
-    <%@include file="header.jsp" %>
-
-
-    <title>Project Dashboard - Robust Free Bootstrap Admin Template</title>
+    
 	<%@include file="header.jsp" %>
 
   </head>
@@ -17,7 +14,6 @@
 	<%@include file="menu.jsp" %>
 
     <!-- ////////////////////////////////////////////////////////////////////////////-->
-
 
     <%@include file="footer.jsp" %>
     
