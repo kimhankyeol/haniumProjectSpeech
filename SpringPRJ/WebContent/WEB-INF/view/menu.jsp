@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
+
     <nav class="header-navbar navbar navbar-with-menu navbar-fixed-top navbar-semi-dark navbar-shadow">
       <div class="navbar-wrapper">
         <div class="navbar-header">
@@ -226,8 +227,9 @@
         
         </ul>
       </div>
+      </div>
       <!-- /main menu content-->
       <!-- main menu footer-->
       <!-- include includes/menu-footer-->
       <!-- main menu footer-->
-    </div>
+

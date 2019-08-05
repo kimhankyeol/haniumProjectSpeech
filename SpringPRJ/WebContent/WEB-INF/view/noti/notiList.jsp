@@ -10,8 +10,10 @@
 <html lang="en" data-textdirection="ltr" class="loading">
   <head>
 
-    <title>Project Dashboard - Robust Free Bootstrap Admin Template</title>
+
+    <title>두루마리 - 공지사항</title>
 	<%@ include file="../header.jsp" %>
+
   </head>
   <body data-open="click" data-menu="vertical-menu" data-col="2-columns" class="vertical-layout vertical-menu 2-columns  fixed-navbar">
 
@@ -26,9 +28,9 @@
           <div class="content-header-left col-md-6 col-xs-12 mb-1">
             <h2 class="content-header-title">공지사항 게시판</h2>
           </div>
-
         </div>
         <div class="content-body"><!-- Basic Tables start -->
+        <!-- 공지사항 화면 안뜨던것의 문제 -->
 <div class="row">
     <div class="col-xs-12">
         <div class="card">
@@ -44,7 +46,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="card-body collapse in">
+            
+              <div class="card-body collapse in">
                 <div class="card-block card-dashboard">
                     
                     <div class="table-responsive">
@@ -70,11 +73,25 @@
                         </table>
                     </div>
                 </div>
+                </div>
+            
+            
+            
+            
+            
+            </div>
+            </div>
+            </div>
+          
+          </div>
+          </div>
+          
+          </div>
   
     <!-- ////////////////////////////////////////////////////////////////////////////-->
 
+	<%@include file="../footer.jsp" %>
 
-		<%@include file="../footer.jsp" %>
   </body>
 
 </html>

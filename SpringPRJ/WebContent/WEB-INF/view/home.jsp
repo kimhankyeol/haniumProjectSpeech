@@ -4,8 +4,11 @@
 <!DOCTYPE html>
 <html lang="en" data-textdirection="ltr" class="loading">
 
+
   <head>
-    
+
+    <title>두루마리</title>
+
 	<%@include file="header.jsp" %>
 
   </head>
