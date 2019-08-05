@@ -3,38 +3,8 @@
 <!DOCTYPE html>
 <html lang="en" data-textdirection="ltr" class="loading">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <title>두루마리</title>
-    <link rel="apple-touch-icon" sizes="60x60" href="resources/app-assets/images/ico/apple-icon-60.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="resources/app-assets/images/ico/apple-icon-76.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="resources/app-assets/images/ico/apple-icon-120.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="resources/app-assets/images/ico/apple-icon-152.png">
-    <link rel="shortcut icon" type="image/x-icon" href="resources/app-assets/images/ico/favicon.ico">
-    <link rel="shortcut icon" type="image/png" href="resources/app-assets/images/ico/favicon-32.png">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-touch-fullscreen" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <!-- BEGIN VENDOR CSS-->
-    <link rel="stylesheet" type="text/css" href="resources/app-assets/css/bootstrap.css">
-    <!-- font icons-->
-    <link rel="stylesheet" type="text/css" href="resources/app-assets/fonts/icomoon.css">
-    <link rel="stylesheet" type="text/css" href="resources/app-assets/fonts/flag-icon-css/css/flag-icon.min.css">
-    <link rel="stylesheet" type="text/css" href="resources/app-assets/vendors/css/extensions/pace.css">
-    <!-- END VENDOR CSS-->
-    <!-- BEGIN ROBUST CSS-->
-    <link rel="stylesheet" type="text/css" href="resources/app-assets/css/bootstrap-extended.css">
-    <link rel="stylesheet" type="text/css" href="resources/app-assets/css/app.css">
-    <link rel="stylesheet" type="text/css" href="resources/app-assets/css/colors.css">
-    <!-- END ROBUST CSS-->
-    <!-- BEGIN Page Level CSS-->
-    <link rel="stylesheet" type="text/css" href="resources/app-assets/css/core/menu/menu-types/vertical-menu.css">
-    <link rel="stylesheet" type="text/css" href="resources/app-assets/css/core/menu/menu-types/vertical-overlay-menu.css">
-    <link rel="stylesheet" type="text/css" href="resources/app-assets/css/pages/login-register.css">
-    <!-- END Page Level CSS-->
-    <!-- BEGIN Custom CSS-->
-    <link rel="stylesheet" type="text/css" href="resources/assets/css/style.css">
-    <!-- END Custom CSS-->
+    <%@include file="header.jsp" %>
   </head>
   <body data-open="click" data-menu="vertical-menu" data-col="1-column" class="vertical-layout vertical-menu 1-column  blank-page blank-page">
     <!-- ////////////////////////////////////////////////////////////////////////////-->
@@ -73,7 +43,7 @@
                                     <label for="remember-me"> 아이디 저장</label>
                                 </fieldset>
                             </div>
-                            <div class="col-md-6 col-xs-12 text-xs-center text-md-right"><a href="recover-password.html" class="card-link">아이디 찾기</a></div>
+                            <div class="col-md-6 col-xs-12 text-xs-center text-md-right"><a href="FindUserID.do" class="card-link">아이디 찾기</a></div>
                         </fieldset>
                         <button type="submit" class="btn btn-primary btn-lg btn-block"><i class="icon-unlock2"></i> 로그인</button>
                     </form>
@@ -81,7 +51,7 @@
             </div>
             <div class="card-footer">
                 <div class="">
-                    <p class="float-sm-left text-xs-center m-0"><a href="recover-password.html" class="card-link">암호 찾기</a></p>
+                    <p class="float-sm-left text-xs-center m-0"><a href="FindUserPw.do" class="card-link">암호 찾기</a></p>
                     <p class="float-sm-right text-xs-center m-0">회원이 아니신가요? <a href="UserReg.do" class="card-link">회원가입</a></p>
                 </div>
             </div>
