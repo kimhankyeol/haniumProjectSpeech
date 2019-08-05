@@ -28,7 +28,6 @@
           <div class="content-header-left col-md-6 col-xs-12 mb-1">
             <h2 class="content-header-title">공지사항 게시판</h2>
           </div>
-
         </div>
         <div class="content-body"><!-- Basic Tables start -->
 <div class="row">
@@ -46,7 +45,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="card-body collapse in">
+            
+              <div class="card-body collapse in">
                 <div class="card-block card-dashboard">
                     
                     <div class="table-responsive">
@@ -72,6 +72,20 @@
                         </table>
                     </div>
                 </div>
+                </div>
+            
+            
+            
+            
+            
+            </div>
+            </div>
+            </div>
+          
+          </div>
+          </div>
+          
+          </div>
   
     <!-- ////////////////////////////////////////////////////////////////////////////-->
 

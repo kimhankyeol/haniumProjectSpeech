@@ -227,6 +227,7 @@
         
         </ul>
       </div>
+      </div>
       <!-- /main menu content-->
       <!-- main menu footer-->
       <!-- include includes/menu-footer-->
