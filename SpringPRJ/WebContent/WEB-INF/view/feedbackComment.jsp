@@ -13,12 +13,12 @@
 </head>
 <body>
 	<div style="width: auto; text-align:center; ">
-	<c:if test="${sessionScope.userid != null }"> 
+	  
 		<textarea rows="5" cols="80" id="commenttext"
 		placeholder="들어본 후 회원님의 평가를 남겨주세요!"></textarea>
 		<br>
 		<button type="button" id="commentreg">댓글쓰기</button>
-	</c:if>
+	
 	</div>
 	<div id="commentlist"></div>
 	
@@ -26,7 +26,6 @@
 <script>
 	const selector = {
 			commentText:$('#commenttext'),
-		//	commentNum:$('#commentNum'),
 			commentReg:$('#commentreg'),		
 			commentEdit:$('#commentedit'),
 			commentDel:$('#commentdel'),
@@ -90,27 +89,35 @@
 		});
 	}
 	
-	//function commentdel(commentNo) {
-	//	if( 세션의 사용자번호 == /*댓글 작성자 번호*/)
-	//	var result = confirm('댓글을 삭제하시겠습니까?');
-	//	if(result===true) {
-		//	//댓글 삭제 처리
-			//$.ajax({
-				//type: "post",
-		//		url: "${path}/resFeedback/resFeedbackDelete.do",
-		//		data: {
-		//			"commentNo" : 
-		//		}
-	//			error: function(){
-	//				alert("통신 실패");
-	//			},
-	//			success: function
-	//		})
-	//	} else {
-			// 이전 화면으로 돌아가 놔두기.
-	//	}
-//	}
+	function commentedit(commentNo){
+		console.log(commentNo);
+		var edit_cont = '';
+	}
 	
+	function commentdel(commentNo) {
+		
+		console.log(commentNo);
+		
+		var result = confirm('댓글을 삭제하시겠습니까?');
+			if(result) {
+			//댓글 삭제 처리
+				$.ajax({
+					type: "post",
+					url: "${path}/resFeedback/resFeedbackDelete.do",
+					data: {
+						"commentNo" : commentNo
+					},
+					error: function(){
+						alert("통신 실패");
+					},
+					success: function(data){
+						console.log(data);
+						commentListPage();
+				}
+					
+			})
+		}
+	}
 
 </script>
 
