@@ -9,13 +9,9 @@
 <!DOCTYPE html>
 <html lang="en" data-textdirection="ltr" class="loading">
   <head>
-<<<<<<< HEAD
-  <%@include file="../header.jsp" %>
-=======
 
-    <title>Project Dashboard - Robust Free Bootstrap Admin Template</title>
-	<%@ include file="../header.jsp" %>
->>>>>>> d6fce231457a5a0a24c32d17f110f0b6d552238c
+  <%@include file="../header.jsp" %>
+
   </head>
   <body data-open="click" data-menu="vertical-menu" data-col="2-columns" class="vertical-layout vertical-menu 2-columns  fixed-navbar">
 
@@ -76,13 +72,9 @@
                 </div>
   
     <!-- ////////////////////////////////////////////////////////////////////////////-->
-<<<<<<< HEAD
+
 	<%@include file="../footer.jsp" %>
-=======
 
-
-		<%@include file="../footer.jsp" %>
->>>>>>> d6fce231457a5a0a24c32d17f110f0b6d552238c
   </body>
 
 </html>

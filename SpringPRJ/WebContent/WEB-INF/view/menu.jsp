@@ -1,11 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<<<<<<< HEAD
-<!-- 왼쪽 상단 robust 아이콘 설정  -->
-    <!-- navbar-fixed-top-->
-=======
->>>>>>> d6fce231457a5a0a24c32d17f110f0b6d552238c
+
     <nav class="header-navbar navbar navbar-with-menu navbar-fixed-top navbar-semi-dark navbar-shadow">
       <div class="navbar-wrapper">
         <div class="navbar-header">
@@ -235,9 +231,4 @@
       <!-- main menu footer-->
       <!-- include includes/menu-footer-->
       <!-- main menu footer-->
-<<<<<<< HEAD
-    </div>
-    <!-- / main menu-->
-=======
-    </div>
->>>>>>> d6fce231457a5a0a24c32d17f110f0b6d552238c
+
