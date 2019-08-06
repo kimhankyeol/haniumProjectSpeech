@@ -4,7 +4,14 @@
 <mapper namespace="poly.persistance.mapper.ReviewMapper">
 
 <select id="getReviewList" resultType="ReviewDTO">
-select * from review
+SELECT
+	reviewTitle AS reviewTitle,
+	reviewContent AS reviewContent,
+	reviewRegDate AS reviewRegDate,
+	reviewNo AS reviewNo
+FROM
+	review
+
 </select>
 
 </mapper>
