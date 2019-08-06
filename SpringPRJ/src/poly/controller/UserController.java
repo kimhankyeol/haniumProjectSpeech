@@ -22,6 +22,20 @@ public class UserController {
 	@Resource(name = "UserService")
 	private IUserService userService;
 
+	@RequestMapping(value="login")
+	public String Login() throws Exception{
+		log.info("accessed login");
+
+		return "/login";
+	}
+	
+	@RequestMapping(value="menu")
+	public String Menu() throws Exception{
+		log.info("accessed login");
+
+		return "/menu";
+	}
+	
 	
 	@RequestMapping(value="index")
 	public String Index(HttpSession session) {
@@ -207,5 +221,12 @@ public class UserController {
 		}
 		
 		return "/redirect";
+	}
+	
+	// 회원정보 수정
+	@RequestMapping(value = "UserEdit")
+	public String userEdit() throws Exception{
+		log.info("UserEdit");
+		return "User/UserEdit";
 	}
 }
