@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- JAVA와 연결할 Mapper 파일 설정 -->
+<mapper namespace="poly.persistance.mapper.ResFeedbackMapper">
+
+<select id="getResList" resultType="ResFeedbackDTO">
+	SELECT
+		feedback_no, 
+		f_title, qset_no,
+		regdate, regno, upddate, updno
+	FROM feedback
+
+</select>
+
+<select id="getResDetail" parameterType="String" resultType="ResFeedbackDTO">
+	SELECT
+		F.feedback_no,
+		F.f_title,
+		F.qset_no,
+		Q.QSET_TITLE,
+		Q.CONTENT,
+		F.regdate
+	FROM
+		feedback F, qset Q
+	WHERE
+		F.feedback_no = #{feedback_no}
+		AND F.qset_no = Q.QSET_NO;
+</select>
+
+
+</mapper>

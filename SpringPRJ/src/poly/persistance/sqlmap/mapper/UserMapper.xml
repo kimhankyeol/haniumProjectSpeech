@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="poly.persistance.mapper.UserMapper">
+	<select id="idCheck" resultType="UserDTO">
+	SELECT DISTINCT(ID) FROM USERINFO WHERE ID = #{id};
+	</select>
+	<select id="emailCheck" resultType="UserDTO">
+	SELECT DISTINCT(EMAIL) FROM USERINFO WHERE EMAIL = #{email};
+	</select>
+	<select id="getLogin" resultType="UserDTO">
+	SELECT USERNO, ID FROM USERINFO WHERE ID = #{id} AND PASSWD = #{passwd}
+	</select>
+	<select id="findID" resultType="UserDTO">
+	SELECT EMAIL, ID FROM USERINFO WHERE EMAIL = #{email}
+	</select>
+	<select id="findPw" resultType="UserDTO">
+	SELECT EMAIL, ID FROM USERINFO WHERE ID = #{id}
+	</select>
+	<insert id="userRegProc" parameterType="UserDTO">
+	INSERT INTO
+	USERINFO
+	(
+		ID,
+		EMAIL,
+		PASSWD,
+		INTEREST,
+		REGDATE,
+		REGNO,
+		UPDDATE,
+		UPDNO
+	)
+	VALUES
+	(
+		#{id},
+		#{email},
+		#{passwd},
+		#{interest},
+		SYSDATE(),
+		1000,
+		SYSDATE(),
+		1000
+		
+	)
+	</insert>
+
+</mapper>
