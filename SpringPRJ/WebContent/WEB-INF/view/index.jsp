@@ -14,6 +14,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+안녕하세요~
 <div class="container">
 <div>Hello world!</div>
 <%@include file="User/UserLogin.jsp" %>
