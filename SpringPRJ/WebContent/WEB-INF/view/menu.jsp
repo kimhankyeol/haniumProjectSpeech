@@ -188,7 +188,7 @@
                   <li><a href="" class="set-new">신규 세트</a></li>
               </ul>
               </li>
-              <li><a href="gallery-grid.html" data-i18n="nav.gallery_pages.gallery_grid" class="menu-item">면접 질문 세트 작성</a>
+              <li><a href="/qset/CreateQSet.do" data-i18n="nav.gallery_pages.gallery_grid" class="menu-item">면접 질문 세트 작성</a>
               </li>
               <li><a href="search-page.html" data-i18n="nav.search_pages.search_page" class="menu-item">모의면접 진행</a>
               </li>

@@ -9,6 +9,7 @@
 		<typeAlias type="poly.dto.ResFeedbackDTO" alias="ResFeedbackDTO"/>
 		<typeAlias type="poly.dto.UserDTO" alias="UserDTO"/>
 		<typeAlias type="poly.dto.FeedbackCommentDTO" alias="FeedbackCommentDTO"/>
+		<typeAlias type="poly.dto.QSetDTO" alias="QSetDTO"/>
     </typeAliases>
 
 </configuration>
