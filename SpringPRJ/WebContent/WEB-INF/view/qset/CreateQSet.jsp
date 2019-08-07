@@ -14,8 +14,7 @@
 <body  data-open="click" data-menu="vertical-menu" data-col="2-columns" class="vertical-layout vertical-menu 2-columns  fixed-navbar">
 	<!-- menu.jsp 경로설정 -->
 	<%@ include file="../menu.jsp" %>
-	
-	
+	<div class="app-content content container-fluid">
 	<div class="row">
 		<div class="col-md-6 offset-md-3">
 			<div class="card">
@@ -66,7 +65,7 @@
 			</div>
 		</div>
 	</div>
-	
+	</div>
 	
 	
 	<!-- footer.jsp 경로설정 -->

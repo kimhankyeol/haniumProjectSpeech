@@ -1,5 +1,7 @@
 package poly.service.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -17,6 +19,11 @@ public class QSetService implements IQSetService {
 	@Override
 	public int insertQSet(QSetDTO qDTO) throws Exception {
 		return qSetMapper.insertQSet(qDTO);
+	}
+
+	@Override
+	public List<QSetDTO> getQSetList() throws Exception {
+		return qSetMapper.getQSetList();
 	}
 	
 
