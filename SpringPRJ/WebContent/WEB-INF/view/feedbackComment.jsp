@@ -32,6 +32,7 @@
 			commentList:$('#commentlist'),
 			
 	}
+	
 	console.log("current feedback : " + <%=feedback_no%>);
 	//댓글불러오기
 	function commentListPage() {
@@ -53,14 +54,14 @@
 	
 	$(function(){
 		selector.commentReg.click(function(){
-			commentreg();
+			commentReg();
 		});
 		
 	});
 	
 	
 	//댓글작성
-	function commentreg() {
+	function commentReg() {
 		var commenttext=selector.commentText.val(); //댓글내용
 		var feedbackNo= <%=feedback_no %>; //게시물번호
 		var commentInfo = {
@@ -93,16 +94,49 @@
 		});
 	}
 	
-	function delConfirm() {
-		alert('후기를 삭제합니다.');
+	function commentEdit(commentNo){
+		console.log(commentNo);
+		var edit_cont = '';
+		//일단 따라써보고 실험해보기.
+		
+		edit_cont += '<div>';
+		edit_cont += '<div>';
+		edit_cont += '<textarea id="commentTextEdit" rows="5" cols="80">';
+		edit_cont += '$("#commentContent"+commentNo).html();' //내용을 불러와... 바닐라js의 .innerHTML과 비슷
+		edit_cont += '</textarea>';
+		edit_cont += '<div style="text-align: right;">';
+		edit_cont += '<button type="button" style="cursor:pointer;" onclick="commentListPage()">취소</button>';
+		edit_cont += '<button type="button" style="cursor:pointer;" onclick="commentEditProc(commentNo)">수정</button>';
+		edit_cont += '</div>';
+		edit_cont += '</div>';
+		edit_cont += '</div>';
+		
+		$('#'+commentNo).html(function(){return edit_cont});
 	}
 	
-	function commentedit(commentNo){
+	function commentEditProc(commentNo) {
+		if($('#commentTextEdit'.val()=='')) {
+			alert('댓글 수정 실패');
+			return false;
+		}
+		
+		$.ajax({
+			type: "post",
+			url: ""
+		})
+		
+		//if에서 걸러지지 않고 제대로 실행됐을 경우
+	}
+	
+	function commentEdit(commentNo){
 		console.log(commentNo);
 		var edit_cont = '';
 	}
 	
-	function commentdel(commentNo) {
+	function delConfirm() {
+		alert('후기를 삭제합니다.');
+	}
+	function commentDel(commentNo) {
 		
 		var result = confirm('댓글을 삭제하시겠습니까?');
 			if(result) {
