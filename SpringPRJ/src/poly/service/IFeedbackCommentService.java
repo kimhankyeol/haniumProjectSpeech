@@ -12,4 +12,6 @@ public interface IFeedbackCommentService {
 		
 	public void commentDel(String commentNo) throws Exception;
 
+	public void commentEdit(FeedbackCommentDTO fcDTO) throws Exception;
+
 }

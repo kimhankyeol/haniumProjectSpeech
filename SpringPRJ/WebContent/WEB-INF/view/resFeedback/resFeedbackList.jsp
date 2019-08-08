@@ -30,7 +30,7 @@
 				<span style="padding:0 1px; display:none;"><%=fcDTO.getCommentNo() %></span>
 				<span style="padding:0 1px;"><%=fcDTO.getRegNo() %></span>
 				<span style="padding:0 1px;"><%=fcDTO.getRegDate() %></span>
-				<div style="min-height: 64px; padding: 6px 14px;"><%=fcDTO.getCommenttext() %></div>
+				<div id="commentContent<%=fcDTO.getCommentNo() %>" style="min-height: 64px; padding: 6px 14px;"><%=fcDTO.getCommenttext() %></div>
 				<%if(fcDTO.getRegNo().equals(userNo)){ %>
 					<button type="button" id="commentedit" onclick="commentEdit('<%=fcDTO.getCommentNo()%>')">수정</button>
 					<button type="button" id="commentdel" onclick="commentDel('<%=fcDTO.getCommentNo()%>')">삭제</button>

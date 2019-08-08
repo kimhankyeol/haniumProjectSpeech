@@ -54,7 +54,26 @@ public class FdbCmmtController {
 			log.info(this.getClass().getName() + " successfully ended.");
 		}
 		
+	}
 	
+	@RequestMapping(value="resFeedback/resFeedbackEdit")
+	public @ResponseBody void CommentEdit(HttpSession session, HttpServletRequest request, Model model, FeedbackCommentDTO fcDTO) throws Exception{
+		
+		log.info(this.getClass().getName());
+		
+		
+		
+		log.info("commentNo : " + fcDTO.getCommentNo());
+		log.info("commenttext : " + fcDTO.getCommenttext());
+		log.info("regNo : " + fcDTO.getRegNo());
+	
+		try {
+			feedbackCommentService.commentEdit(fcDTO);
+		} catch (Exception e){
+			e.printStackTrace();
+		} finally {
+			log.info(this.getClass().getName() + " successfully ended.");
+		}
 	}
 	
 	@RequestMapping(value="resFeedback/resFeedbackListPage")
@@ -63,10 +82,7 @@ public class FdbCmmtController {
 		log.info(feedbackNo);
 		log.info("start : "+ this.getClass().getName());
 		
-		List<FeedbackCommentDTO> fcDTO = feedbackCommentService.fcList(feedbackNo);
-	
-		FeedbackCommentDTO elementDTO = new FeedbackCommentDTO();
-		
+		List<FeedbackCommentDTO> fcDTO = feedbackCommentService.fcList(feedbackNo);		
 		
 		model.addAttribute("fcDTO", fcDTO);
 		

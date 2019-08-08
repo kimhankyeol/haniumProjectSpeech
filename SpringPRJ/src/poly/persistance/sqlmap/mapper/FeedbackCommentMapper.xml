@@ -27,4 +27,13 @@ INSERT INTO feedback_comment (
 DELETE FROM feedback_comment
 WHERE comment_no = #{commentNo}
 </delete>
+
+<update id="commentEdit" parameterType="FeedbackCommentDTO">
+UPDATE feedback_comment
+SET
+	commenttext = #{commenttext},
+	regno = #{regNo},
+	regdate = SYSDATE()
+WHERE comment_no = #{commentNo}
+</update> 
 </mapper>

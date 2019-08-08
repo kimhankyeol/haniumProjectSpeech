@@ -31,5 +31,10 @@ public class FeedbackCommentService implements IFeedbackCommentService {
 		feedbackCommentMapper.commentDel(commentNo);
 	}
 
+	@Override
+	public void commentEdit(FeedbackCommentDTO fcDTO) throws Exception {
+		feedbackCommentMapper.commentEdit(fcDTO);
+	}
+
 
 }

@@ -14,4 +14,6 @@ public interface FeedbackCommentMapper {
 
 	void commentDel(String commentNo) throws Exception;
 
+	void commentEdit(FeedbackCommentDTO fcDTO) throws Exception;
+
 }
