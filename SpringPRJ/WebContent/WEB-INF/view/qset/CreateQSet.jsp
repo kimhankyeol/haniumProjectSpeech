@@ -25,7 +25,7 @@
 				</div>
 				<div class="card-body collapse in">
 					<div class="card-block">
-						<form autocomplete="off" class="form" id="qForm" method="POST" action="/qset/SubmitQSet.do">
+						<form autocomplete="off" class="form" id="qForm" method="POST" action="/qset/SubmitQSet.do" onsubmit="doSubmit()">
 							<div class="form-body">
 
 								<div class="form-group">
@@ -112,7 +112,7 @@
 		}
 	}
 
-	$("#submitBtn").click(function(){
+	function doSubmit(){
 		var questions = document.getElementsByClassName('question');
 		var qList = [];
 		for(var i = 0; i < qNum; i++){
@@ -120,8 +120,7 @@
 		}
 		var joinedQ = qList.join("`");
 		$("#content").val(joinedQ);
-		$("#qForm").submit();
-	});
+	}
 	</script> 
 </body>
 </html>
