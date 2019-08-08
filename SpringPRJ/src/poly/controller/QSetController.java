@@ -68,13 +68,29 @@ public class QSetController {
 	public String QSetList(HttpServletRequest request, HttpServletResponse response, ModelMap model, HttpSession session) throws Exception{
 		List<QSetDTO> qList = new ArrayList<>();
 		try {
-			qList = qSetService.getQSetList();
+			qList = qSetService.getQSetList(0);
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
 		model.addAttribute("qList", qList);
 		
 		return "qset/QSetList";
+	}
+	
+	// 질문 세트 추가로 불러오기
+	@RequestMapping(value="qset/QSetLoadMore")
+	public String QSetLoadMore(HttpServletRequest request, HttpServletResponse response, ModelMap model, HttpSession session) throws Exception{
+		int i = Integer.parseInt(request.getParameter("page"));
+		
+		List<QSetDTO> qList = new ArrayList<>();
+		try {
+			qList = qSetService.getQSetList(i);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		model.addAttribute("qList", qList);
+		
+		return "qset/QSetCard";
 	}
 	
 }

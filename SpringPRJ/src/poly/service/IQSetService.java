@@ -8,6 +8,6 @@ public interface IQSetService {
 
 	int insertQSet(QSetDTO qDTO) throws Exception;
 
-	List<QSetDTO> getQSetList() throws Exception;
+	List<QSetDTO> getQSetList(int i) throws Exception;
 
 }

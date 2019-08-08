@@ -16,7 +16,7 @@
 	<%@ include file="../menu.jsp" %>
 	<div class="app-content content container-fluid">
 	<div class="row">
-		<div class="col-md-6 offset-md-3">
+		<div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-12 mb-1">
 			<div class="card">
 				<div class="card-header">
 					<h4 class="card-title" id="basic-layout-card-center">질문 세트 등록</h4>

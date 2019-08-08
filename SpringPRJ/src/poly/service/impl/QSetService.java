@@ -22,8 +22,8 @@ public class QSetService implements IQSetService {
 	}
 
 	@Override
-	public List<QSetDTO> getQSetList() throws Exception {
-		return qSetMapper.getQSetList();
+	public List<QSetDTO> getQSetList(int i) throws Exception {
+		return qSetMapper.getQSetList(i);
 	}
 	
 
