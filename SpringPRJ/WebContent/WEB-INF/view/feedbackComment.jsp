@@ -30,7 +30,7 @@
 			commentList:$('#commentlist'),
 			},
 			
-		confirm = {
+		confirming = {
 				reg: function(){
 					alert('후기를 남겼습니다!');
 				},
@@ -96,7 +96,7 @@
 			success: function(data){ //콜백함수
 				selector.commentText.val(function()
 						{return ''}); //댓글란에 작성한 내용 지우기.
-				confirm.reg();
+				confirming.reg();
 				commentListPage();
 			}
 		
@@ -146,7 +146,7 @@
 			success: function(data){
 				console.log(data);
 				commentListPage();
-				confirm.edit();
+				confirming.edit();
 			}
 		})
 		
@@ -155,7 +155,7 @@
 	function commentDel(commentNo) {
 		
 		var result = confirm('댓글을 삭제하시겠습니까?');
-			if(result) {
+		if(result) {
 			//댓글 삭제 처리
 				$.ajax({
 					type: "post",
@@ -169,10 +169,12 @@
 					success: function(data){
 						console.log(data);
 						commentListPage();
-						confirm.del();
+						confirming.del();
 				}
 					
 			})
+		} else {
+			return false;
 		}
 	}
 
