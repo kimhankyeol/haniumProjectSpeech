@@ -1,5 +1,8 @@
 package poly.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,6 +23,7 @@ public class QSetController {
 	@Resource(name = "QSetService")
 	private IQSetService qSetService;
 	
+	// 짊문 세트 작성
 	@RequestMapping(value="qset/CreateQSet")
 	public String CreateQset() throws Exception{
 		
@@ -49,7 +53,7 @@ public class QSetController {
 		result = qSetService.insertQSet(qDTO);
 		
 		if (result > 0) {
-			model.addAttribute("url", "/index.do");
+			model.addAttribute("url", "/qset/QSetList.do");
 			model.addAttribute("msg", "등록 성공");
 		} else {
 			model.addAttribute("url", "/qset/SubmitQSet.do");
@@ -58,4 +62,19 @@ public class QSetController {
 		
 		return "/redirect";
 	}
+	
+	//질문 세트 목록
+	@RequestMapping(value="qset/QSetList")
+	public String QSetList(HttpServletRequest request, HttpServletResponse response, ModelMap model, HttpSession session) throws Exception{
+		List<QSetDTO> qList = new ArrayList<>();
+		try {
+			qList = qSetService.getQSetList();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		model.addAttribute("qList", qList);
+		
+		return "qset/QSetList";
+	}
+	
 }

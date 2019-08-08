@@ -1,5 +1,7 @@
 package poly.persistance.mapper;
 
+import java.util.List;
+
 import config.Mapper;
 import poly.dto.QSetDTO;
 
@@ -7,5 +9,7 @@ import poly.dto.QSetDTO;
 public interface QSetMapper {
 
 	int insertQSet(QSetDTO qDTO) throws Exception;
+
+	List<QSetDTO> getQSetList() throws Exception;
 
 }

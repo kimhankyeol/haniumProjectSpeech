@@ -183,9 +183,9 @@
             <ul class="menu-content">
               <li><a href="invoice-template.html" data-i18n="nav.invoice.invoice_template" class="menu-item">면접 질문 세트 선택</a>
               <ul class="question-set-select">
-                  <li><a href="" class="set-popular">인기 세트</a></li>
-                  <li><a href="" class="set-recommend">추천 세트</a></li>
-                  <li><a href="" class="set-new">신규 세트</a></li>
+                  <li><a href="/qset/QSetList.do" class="set-popular">인기 세트</a></li>
+                  <li><a href="/qset/QSetList.do" class="set-recommend">추천 세트</a></li>
+                  <li><a href="/qset/QSetList.do" class="set-new">신규 세트</a></li>
               </ul>
               </li>
               <li><a href="/qset/CreateQSet.do" data-i18n="nav.gallery_pages.gallery_grid" class="menu-item">면접 질문 세트 작성</a>

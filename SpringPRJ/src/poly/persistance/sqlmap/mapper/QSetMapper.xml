@@ -8,4 +8,12 @@ INSERT INTO QSET(
 	)VALUES(
 		#{qset_title}, #{qset_desc}, #{content}, #{regno}, #{regno})
 </insert>
+<select id="getQSetList" resultType="QSetDTO">
+SELECT
+	QSET_TITLE AS qset_title,
+	QSET_DESC AS qset_desc,
+	LIKES AS likes,
+	VIEWCOUNT AS viewcount
+FROM QSET
+</select>
 </mapper>

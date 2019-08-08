@@ -4,7 +4,7 @@ public class QSetDTO {
 	private String qset_title;
 	private String qset_desc;
 	private String content;
-	private String like;
+	private String likes;
 	private String viewcount;
 	private String regdate;
 	private String regno;
@@ -31,11 +31,11 @@ public class QSetDTO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getLike() {
-		return like;
+	public String getLikes() {
+		return likes;
 	}
-	public void setLike(String like) {
-		this.like = like;
+	public void setLikes(String likes) {
+		this.likes = likes;
 	}
 	public String getViewcount() {
 		return viewcount;
