@@ -1,0 +1,33 @@
+1. 오픈api 제공 사이트에 접속-사람인오픈API사이트
+(2. 자료 검색)
+
+3. 사람인 오픈 API 명시하는 소스코드 꼭 넣어주기
+=> Powered by <a href="http://www.saramin.co.kr" target="_blank">취업 사람인</a>
+
+4. method="get", request URI="http://oapi.saramin.co.kr/job-search"
+
+5. request header(요청 헤더)
+
+데이터포맷지정; API의 정보를 XML형식으로 불러올지, JSON형식으로 불러올지!
+
+	Header name=Accept
+	Header value= ⓐ xml로 응답 : application.xml
+		       ⓑ json로 응답 : applicatoin.json	//json으로 쓰자-Key만 알면 Value를 알 수 있으므로
+
+결과값을 이용할 수 있도록 파싱작업을 해야 함
+JSON형태로 불러오려면, AJAX에서 JSON형태로 요청하고, JSON형태로 API를 불러온 후 JSON으로 파싱하여 리턴한다.
+
+========================================
+두루마리 앱 등록 신청함!
+	5mQHARgJCsD8xIL9eYQjKwihPi7QAZSd0WQBptWGUfGVmYT6KG (발급받은 키값입니다. 요청변수에 활용하세요!)
+
+
+6. request parameters(요청 변수)
+	필수입력; access-key - String자료형 		//앱 등록 후 발급받은 키				=>
+	선택입력; id	 - String자료형		//공고번호
+		fields	 - String자료형		//필드 선택(복수입력)
+							posting-date: 날짜/시간 형식의 게시일시
+							expiration-date: 날짜/시간 형식의 마감일시
+							keyword-code: 업직종 키워드(상세분류) 코드
+							count: 조회수/지원자수/댓글수
+	

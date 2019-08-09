@@ -62,6 +62,12 @@
 <div style="padding: 0 5%;">	<!-- <hr />-->
 <%@ include file="../feedbackComment.jsp" %>
 </div>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
  <!-- ////////////////////////////////////////////////////////////////////////////-->
 
     <%@include file="../footer.jsp" %>
